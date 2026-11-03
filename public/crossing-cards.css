@@ -1,0 +1,38 @@
+/* Embryos and pregnancies: one identity, two parents, one next step. */
+/* A landscape photograph must never sit inside an oversized portrait box. */
+.parent-pair .parent-photo>img,.parent-pair .parent-photo-pending{aspect-ratio:16/9;height:auto;object-fit:contain!important;object-position:center!important}
+.parent-pair .parent-photo>img{background:#fff}
+.library-photo:not(.crossing-visual){aspect-ratio:16/9}
+.library-photo:not(.crossing-visual)>img{height:100%;aspect-ratio:auto;object-fit:contain!important}
+.foal-photo,.detail-content .foal-photo,.mare-card .mare-photo{height:auto;aspect-ratio:16/9;object-fit:contain!important}
+.animal-photo-gallery .mare-main-photo{aspect-ratio:16/9;min-height:0}
+.animal-photo-gallery .mare-main-photo>img{display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:contain!important}
+.hero{aspect-ratio:auto;min-height:0}
+.hero-image{position:static;display:block;width:100%;height:auto;object-fit:contain}
+.hero-content{position:absolute;top:0;left:0}
+.crossing-tabs{display:flex;gap:32px;border-bottom:1px solid var(--beige);margin-bottom:30px;overflow-x:auto}
+.crossing-tabs a{flex-shrink:0;font-size:14px;color:var(--muted);padding:0 0 16px;border-bottom:2px solid transparent}
+.crossing-tabs a[aria-current=page]{color:var(--brown);font-weight:500;border-bottom-color:var(--brown)}
+.wrap:has(>.library-grid>.crossing-offer),.wrap:has(#catalog-grid>.crossing-offer){max-width:1320px}
+.library-grid:has(>.crossing-offer),#catalog-grid:has(>.crossing-offer){grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.library-grid>.crossing-offer,#catalog-grid>.crossing-offer{display:flex;flex-direction:column;grid-row:auto;grid-template-rows:none;gap:0;min-width:0;padding:16px;border:1px solid var(--beige);background:#fff}
+.crossing-offer .crossing-code{order:0;grid-row:auto;font-size:12px;font-weight:500;letter-spacing:.13em;line-height:1.65;text-transform:uppercase;color:var(--brown);margin:0 0 18px}
+.crossing-offer .crossing-code a{display:block}
+.crossing-offer .parent-pair{order:1;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px;overflow:visible;background:#fff}
+.crossing-offer .parent-photo{min-width:0;overflow:visible;background:#fff}
+.crossing-offer .parent-photo>img,.crossing-offer .parent-photo-pending{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain!important;background:#fff}
+.crossing-offer .parent-photo-pending{background:#f7f4ef}
+.crossing-offer .parent-photo-pending{display:flex;align-items:center;justify-content:center;padding:18px;font-size:12px;line-height:1.7}
+.crossing-offer .parent-label{min-height:112px;padding:18px 0 20px;font-size:11px;letter-spacing:.12em;line-height:1.5}
+.crossing-offer .parent-label:before{display:inline-block;content:'♂';font:23px/1 Arial,sans-serif;vertical-align:-3px;margin-right:7px;letter-spacing:0}
+.crossing-offer .parent-photo:nth-child(2) .parent-label:before{content:'♀'}
+.crossing-offer .parent-label strong{font-size:clamp(18px,1.65vw,24px);font-weight:500;line-height:1.35;letter-spacing:-.025em;margin-top:9px;overflow-wrap:anywhere}
+.crossing-offer .crossing-note{order:2;grid-row:auto;font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 18px}
+.crossing-offer>.crossing-action{order:3;grid-row:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;margin: auto 0 0;padding:18px 0 0;border-top:1px solid var(--beige);font-size:13px;font-weight:500;color:var(--brown)}
+.crossing-action span{font-size:21px;transition:transform .2s}
+.crossing-action:hover span{transform:translateX(4px)}
+#catalog-grid:has(>.crossing-offer)>.product-card:not(.crossing-offer){grid-row:auto;display:flex;flex-direction:column}
+#catalog-grid:has(>.crossing-offer)>.product-card:not(.crossing-offer)>.text-link{margin-top:auto}
+@media(max-width:800px){.hero-content{position:relative;top:auto;left:auto}.library-grid:has(>.crossing-offer),#catalog-grid:has(>.crossing-offer){grid-template-columns:1fr;gap:24px}.crossing-offer .parent-label strong{font-size:21px}}
+@media(max-width:480px){.wrap:has(>.library-grid>.crossing-offer),.wrap:has(#catalog-grid>.crossing-offer){width:calc(100% - 32px)}.library-grid>.crossing-offer,#catalog-grid>.crossing-offer{padding:10px}.crossing-offer .crossing-code{font-size:10px;letter-spacing:.1em;margin-bottom:14px}.crossing-offer .parent-label{min-height:112px;padding-top:14px;font-size:10px}.crossing-offer .parent-label strong{font-size:18px}.crossing-offer .parent-photo-pending{font-size:10px;padding:10px}}
+@media(prefers-reduced-motion:reduce){.crossing-action span{transition:none}}

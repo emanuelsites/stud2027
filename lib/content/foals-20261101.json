@@ -1,0 +1,578 @@
+[
+  {
+    "id": "foal-20261101-ementina-pb",
+    "slug": "ementina-pb",
+    "kind": "animal",
+    "title": "Ementina PB",
+    "body": "Ementina PB reúne Emerald Van’t Ruytershof e Quellanotte di Villagana, filha de Cornet Obolensky. Um encontro de linhagens que traduz o olhar do Stud PB para a criação: a escolha começa pela origem.\n\nSua linha materna passa por Jewel van ’t Heike e Quanina van ’t Heike, dando continuidade à família de Quellanotte dentro do nosso plantel.\n\nAinda no início de sua trajetória, Ementina representa um novo capítulo dessa seleção. Acompanhar seu desenvolvimento é parte do cuidado que dedicamos a cada geração.",
+    "image": "/assets/foals-20261101/ementina-pb-studio.webp",
+    "gallery": [
+      "/assets/foals-20261101/ementina-pb-original.webp"
+    ],
+    "info": {
+      "father": "Emerald Van't Ruytershof",
+      "mother": "Quellanotte di Villagana",
+      "maternalGrandfather": "Cornet Obolensky",
+      "genetics": "Emerald Van't Ruytershof × Quellanotte di Villagana",
+      "availability": "consult",
+      "sex": "Fêmea",
+      "videos": [],
+      "pedigreeVerification": "partial",
+      "pedigreeSources": [
+        "https://drive.google.com/drive/folders/1gH_tAoTF-qvMqTsRmo9WzLS96Z_HxTIj"
+      ],
+      "pedigreeReviewedAt": "2026-11-01",
+      "pedigreeReviewNote": "Filiação conforme material enviado pelo Stud PB. Ancestrais maternos complementados a partir da ficha da matriz já cadastrada. Data de nascimento e registro não informados.",
+      "editorialReviewPending": false,
+      "photoTreatment": "Fundo de estúdio e ajuste de luz por IA; original preservado na galeria.",
+      "dataReviewPending": true,
+      "featureOrder": 1,
+      "dataReviewNote": "Confirmar data de nascimento e registro com o Stud PB."
+    },
+    "pedigree": {
+      "name": "Ementina PB",
+      "sex": "female",
+      "father": {
+        "name": "Emerald Van't Ruytershof",
+        "sex": "male",
+        "father": {
+          "name": "Diamant de Semilly",
+          "sex": "male",
+          "father": {
+            "name": "Le Tot de Semilly",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Venise des Cresles",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Carthina Z",
+          "sex": "female",
+          "father": {
+            "name": "Carthago",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Tanagra S van het Darohof",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      },
+      "mother": {
+        "name": "Quellanotte di Villagana",
+        "sex": "female",
+        "father": {
+          "name": "Cornet Obolensky",
+          "sex": "male",
+          "father": {
+            "name": "Clinton",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Rabanna van Costersveld",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Jewel van 't Heike",
+          "sex": "female",
+          "father": {
+            "name": "Nabab de Reve",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Quanina van 't Heike",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      }
+    },
+    "categories": [
+      "potros"
+    ],
+    "status": "published",
+    "source_url": "https://drive.google.com/drive/folders/1gH_tAoTF-qvMqTsRmo9WzLS96Z_HxTIj",
+    "published_at": "2026-11-01T09:20:00Z",
+    "updated_at": "2026-11-01T09:20:00Z",
+    "version": 1
+  },
+  {
+    "id": "foal-20261101-hello-my-dame-pb",
+    "slug": "hello-my-dame-pb",
+    "kind": "animal",
+    "title": "Hello My Dame PB",
+    "body": "Hello My Dame PB é filha de Conthargos e Dame Blanche of Picobello Z. Pela mãe, reúne Diaron OLD e a família de Picobello Mabella, uma origem que ocupa um lugar especial na seleção do Stud PB.\n\nSeu pedigree aproxima a linha de Converter I e Carthago Z, pelo pai, da combinação de Diaron OLD com Indoctro na linha materna. Cada ramo ajuda a contar a história desse cruzamento.\n\nÉ dessa leitura de gerações que nasce nossa expectativa para o futuro. Hello My Dame começa agora sua própria trajetória, acompanhada de perto pela equipe do Stud PB.",
+    "image": "/assets/foals-20261101/hello-my-dame-pb-studio.webp",
+    "gallery": [
+      "/assets/foals-20261101/hello-my-dame-pb-original.webp"
+    ],
+    "info": {
+      "father": "Conthargos",
+      "mother": "Dame Blanche of Picobello Z",
+      "maternalGrandfather": "Diaron OLD",
+      "genetics": "Conthargos × Dame Blanche of Picobello Z",
+      "availability": "consult",
+      "sex": "Fêmea",
+      "videos": [],
+      "pedigreeVerification": "partial",
+      "pedigreeSources": [
+        "https://drive.google.com/drive/folders/1ABe3r8AeAV6DiJDV5CDG0IyN_-u15hSh",
+        "https://www.hippomundo.com/en/pedigree/performance/507869-conthargos"
+      ],
+      "pedigreeReviewedAt": "2026-11-01",
+      "pedigreeReviewNote": "Filiação conforme material enviado pelo Stud PB. Ancestrais maternos complementados a partir da ficha da matriz já cadastrada. Data de nascimento e registro não informados. Material recebido usa a grafia Dame Blanche of Picobello PB Z; vinculada à matriz já cadastrada como Dame Blanche of Picobello Z.",
+      "editorialReviewPending": false,
+      "photoTreatment": "Fundo de estúdio e ajuste de luz por IA; original preservado na galeria.",
+      "dataReviewPending": true,
+      "featureOrder": 2,
+      "dataReviewNote": "Confirmar data de nascimento e registro com o Stud PB."
+    },
+    "pedigree": {
+      "name": "Hello My Dame PB",
+      "sex": "female",
+      "father": {
+        "name": "Conthargos",
+        "sex": "male",
+        "father": {
+          "name": "Converter I",
+          "sex": "male",
+          "father": {
+            "name": "Contender",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Fontirell",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Cajandra Z",
+          "sex": "female",
+          "father": {
+            "name": "Carthago Z",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Jalanda",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      },
+      "mother": {
+        "name": "Dame Blanche of Picobello Z",
+        "sex": "female",
+        "father": {
+          "name": "Diaron OLD",
+          "sex": "male",
+          "father": {
+            "name": "Diarado",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Lenda-Cara",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Picobello Mabella",
+          "sex": "female",
+          "father": {
+            "name": "Indoctro",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Beach Quella",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      }
+    },
+    "categories": [
+      "potros"
+    ],
+    "status": "published",
+    "source_url": "https://drive.google.com/drive/folders/1ABe3r8AeAV6DiJDV5CDG0IyN_-u15hSh",
+    "published_at": "2026-11-01T09:20:00Z",
+    "updated_at": "2026-11-01T09:20:00Z",
+    "version": 1
+  },
+  {
+    "id": "foal-20261101-laloubet-pb",
+    "slug": "laloubet-pb",
+    "kind": "animal",
+    "title": "Laloubet PB",
+    "body": "Laloubet PB nasce do encontro de Baloubet du Rouet com Lady Scarlett JMen. Sua mãe, campeã brasileira sênior em 2024, traz para esse cruzamento uma história que o Stud PB acompanha com orgulho.\n\nPela linha materna, Laloubet reúne Larimar e Vabien S, filha de Casall. Pelo pai, dá continuidade à linhagem de Galoubet A e Mesange du Rouet.\n\nEssa herança é o ponto de partida, e o desenvolvimento de cada animal escreve o restante da história. Para Laloubet, o próximo capítulo começa com o cuidado e a atenção dedicados aos nossos potros.",
+    "image": "/assets/foals-20261101/laloubet-pb-studio.webp",
+    "gallery": [
+      "/assets/foals-20261101/laloubet-pb-original.webp"
+    ],
+    "info": {
+      "father": "Baloubet du Rouet",
+      "mother": "Lady Scarlett JMen",
+      "maternalGrandfather": "Larimar",
+      "genetics": "Baloubet du Rouet × Lady Scarlett JMen",
+      "availability": "consult",
+      "sex": "Fêmea",
+      "videos": [],
+      "pedigreeVerification": "partial",
+      "pedigreeSources": [
+        "https://drive.google.com/drive/folders/1TBa_3MknEchSFCD49UgYE1wAkkF6N3-d"
+      ],
+      "pedigreeReviewedAt": "2026-11-01",
+      "pedigreeReviewNote": "Filiação conforme material enviado pelo Stud PB. Ancestrais maternos complementados a partir da ficha da matriz já cadastrada. Data de nascimento e registro não informados.",
+      "editorialReviewPending": false,
+      "photoTreatment": "Fundo de estúdio e ajuste de luz por IA; original preservado na galeria.",
+      "dataReviewPending": true,
+      "featureOrder": 3,
+      "dataReviewNote": "Confirmar data de nascimento e registro com o Stud PB."
+    },
+    "pedigree": {
+      "name": "Laloubet PB",
+      "sex": "female",
+      "father": {
+        "name": "Baloubet du Rouet",
+        "sex": "male",
+        "father": {
+          "name": "Galoubet A",
+          "sex": "male",
+          "father": {
+            "name": "Alme",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Viti",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Mesange du Rouet",
+          "sex": "female",
+          "father": {
+            "name": "Starter",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Badine",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      },
+      "mother": {
+        "name": "Lady Scarlett JMen",
+        "sex": "female",
+        "father": {
+          "name": "Larimar",
+          "sex": "male",
+          "father": {
+            "name": "Lavall II",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Elastic Dream",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Vabien S",
+          "sex": "female",
+          "father": {
+            "name": "Casall",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Gera IV",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      }
+    },
+    "categories": [
+      "potros"
+    ],
+    "status": "published",
+    "source_url": "https://drive.google.com/drive/folders/1TBa_3MknEchSFCD49UgYE1wAkkF6N3-d",
+    "published_at": "2026-11-01T09:20:00Z",
+    "updated_at": "2026-11-01T09:20:00Z",
+    "version": 1
+  },
+  {
+    "id": "foal-20261101-only-belle-pb",
+    "slug": "only-belle-pb",
+    "kind": "animal",
+    "title": "Only Belle PB",
+    "body": "Only Belle PB reúne Heartbreaker e Cibelle VD Berghoeve Z. O cruzamento conecta a linha de Nimmerdor, pelo pai, à combinação de Chacco-Blue com Quasibelle du Seigneur, pela mãe.\n\nNo ramo materno, Rubens du Ri d’Asse e Ta Belle van Sombeke ajudam a compor uma família que faz parte da seleção de matrizes do Stud PB. A origem de Only Belle pode ser acompanhada geração a geração no pedigree.\n\nÉ uma nova continuidade para a família de Cibelle no nosso plantel. Seguimos acompanhando seu crescimento, respeitando o tempo e as particularidades de cada animal.",
+    "image": "/assets/foals-20261101/only-belle-pb-studio.webp",
+    "gallery": [
+      "/assets/foals-20261101/only-belle-pb-original.webp"
+    ],
+    "info": {
+      "father": "Heartbreaker",
+      "mother": "Cibelle VD Berghoeve Z",
+      "maternalGrandfather": "Chacco-Blue",
+      "genetics": "Heartbreaker × Cibelle VD Berghoeve Z",
+      "availability": "consult",
+      "sex": "Não informado",
+      "videos": [],
+      "pedigreeVerification": "partial",
+      "pedigreeSources": [
+        "https://drive.google.com/drive/folders/1zjuYbRuYpNdV-1ADG4KT3q-akcrg7sNb"
+      ],
+      "pedigreeReviewedAt": "2026-11-01",
+      "pedigreeReviewNote": "Três gerações transcritas da árvore enviada pelo Stud PB. Data de nascimento, sexo e registro não informados.",
+      "editorialReviewPending": false,
+      "photoTreatment": "Fundo de estúdio e ajuste de luz por IA; original preservado na galeria.",
+      "dataReviewPending": true,
+      "featureOrder": 4,
+      "dataReviewNote": "Confirmar sexo, data de nascimento e registro com o Stud PB."
+    },
+    "pedigree": {
+      "name": "Only Belle PB",
+      "sex": "unknown",
+      "father": {
+        "name": "Heartbreaker",
+        "sex": "male",
+        "father": {
+          "name": "Nimmerdor",
+          "sex": "male",
+          "father": {
+            "name": "Farn",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Ramona",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Bacarole",
+          "sex": "female",
+          "father": {
+            "name": "Silvano",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Orchidee",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      },
+      "mother": {
+        "name": "Cibelle VD Berghoeve Z",
+        "sex": "female",
+        "father": {
+          "name": "Chacco-Blue",
+          "sex": "male",
+          "father": {
+            "name": "Chambertin",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Contara",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Quasibelle du Seigneur",
+          "sex": "female",
+          "father": {
+            "name": "Rubens du Ri d'Asse",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Ta Belle van Sombeke",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      }
+    },
+    "categories": [
+      "potros"
+    ],
+    "status": "published",
+    "source_url": "https://drive.google.com/drive/folders/1zjuYbRuYpNdV-1ADG4KT3q-akcrg7sNb",
+    "published_at": "2026-11-01T09:20:00Z",
+    "updated_at": "2026-11-01T09:20:00Z",
+    "version": 1
+  },
+  {
+    "id": "foal-20261101-e-belle-pb",
+    "slug": "e-belle-pb",
+    "kind": "animal",
+    "title": "E Belle PB",
+    "body": "E Belle PB combina Emerald Van’t Ruytershof e Cibelle VD Berghoeve Z, aproximando as linhas de Diamant de Semilly e Chacco-Blue. Um cruzamento em que a escolha do garanhão conversa com a origem da matriz.\n\nPela mãe, a genealogia passa por Quasibelle du Seigneur, Rubens du Ri d’Asse e Ta Belle van Sombeke. Pelo pai, Carthina Z completa a base materna de Emerald.\n\nE Belle integra a nova geração do Stud PB e dá sequência à família de Cibelle dentro da criação. Sua história começa nessa origem e segue sendo construída no acompanhamento diário de seu desenvolvimento.",
+    "image": "/assets/foals-20261101/e-belle-pb-studio.webp",
+    "gallery": [
+      "/assets/foals-20261101/e-belle-pb-original.webp"
+    ],
+    "info": {
+      "father": "Emerald Van't Ruytershof",
+      "mother": "Cibelle VD Berghoeve Z",
+      "maternalGrandfather": "Chacco-Blue",
+      "genetics": "Emerald Van't Ruytershof × Cibelle VD Berghoeve Z",
+      "availability": "consult",
+      "sex": "Não informado",
+      "videos": [],
+      "pedigreeVerification": "partial",
+      "pedigreeSources": [
+        "https://drive.google.com/drive/folders/1XzkssOz237_Nr6CGsQo5noQyofbw3xpM"
+      ],
+      "pedigreeReviewedAt": "2026-11-01",
+      "pedigreeReviewNote": "Três gerações transcritas da árvore enviada pelo Stud PB. Data de nascimento, sexo e registro não informados.",
+      "editorialReviewPending": false,
+      "photoTreatment": "Fundo de estúdio e ajuste de luz por IA; original preservado na galeria.",
+      "dataReviewPending": true,
+      "featureOrder": 5,
+      "dataReviewNote": "Confirmar sexo, data de nascimento e registro com o Stud PB."
+    },
+    "pedigree": {
+      "name": "E Belle PB",
+      "sex": "unknown",
+      "father": {
+        "name": "Emerald Van't Ruytershof",
+        "sex": "male",
+        "father": {
+          "name": "Diamant de Semilly",
+          "sex": "male",
+          "father": {
+            "name": "Le Tot de Semilly",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Venise des Cresles",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Carthina Z",
+          "sex": "female",
+          "father": {
+            "name": "Carthago",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Tanagra S van het Darohof",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      },
+      "mother": {
+        "name": "Cibelle VD Berghoeve Z",
+        "sex": "female",
+        "father": {
+          "name": "Chacco-Blue",
+          "sex": "male",
+          "father": {
+            "name": "Chambertin",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Contara",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        },
+        "mother": {
+          "name": "Quasibelle du Seigneur",
+          "sex": "female",
+          "father": {
+            "name": "Rubens du Ri d'Asse",
+            "sex": "male",
+            "father": null,
+            "mother": null
+          },
+          "mother": {
+            "name": "Ta Belle van Sombeke",
+            "sex": "female",
+            "father": null,
+            "mother": null
+          }
+        }
+      }
+    },
+    "categories": [
+      "potros"
+    ],
+    "status": "published",
+    "source_url": "https://drive.google.com/drive/folders/1XzkssOz237_Nr6CGsQo5noQyofbw3xpM",
+    "published_at": "2026-11-01T09:20:00Z",
+    "updated_at": "2026-11-01T09:20:00Z",
+    "version": 1
+  }
+]

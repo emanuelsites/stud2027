@@ -1,0 +1,31 @@
+{
+  "name": "studpb-vercel",
+  "version": "30.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/build-upload.mjs && next build --webpack",
+    "start": "next start",
+    "db:import": "node scripts/import-db.mjs",
+    "test": "node scripts/build-upload.mjs && node tests/vercel-runtime.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.4",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "@libsql/client": "0.18.0",
+    "@vercel/blob": "2.8.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.4",
+    "typescript": "5.9.3",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@cloudflare/workers-types": "4.20260515.1"
+  }
+}

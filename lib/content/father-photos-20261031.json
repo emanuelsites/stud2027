@@ -1,0 +1,50 @@
+{
+  "chacoonblue": {
+    "name": "Chacoon Blue",
+    "image": "/assets/parents/chacoon-blue-20261031.png"
+  },
+  "conthargos": {
+    "name": "Conthargos",
+    "image": "/assets/parents/conthargos-20261031.png"
+  },
+  "cumano": {
+    "name": "Cumano",
+    "image": "/assets/parents/cumano-20261031.png"
+  },
+  "diamantdesemilly": {
+    "name": "Diamant de Semilly",
+    "image": "/assets/parents/diamant-de-semilly-20261031.png"
+  },
+  "emeraldvan": {
+    "name": "Emerald Van't Ruytershof",
+    "image": "/assets/parents/emerald-vant-ruytershof-20261031.png"
+  },
+  "emeraldvantruytershof": {
+    "name": "Emerald Van't Ruytershof",
+    "image": "/assets/parents/emerald-vant-ruytershof-20261031.png"
+  },
+  "ermitagekalone": {
+    "name": "Ermitage Kalone",
+    "image": "/assets/parents/ermitage-kalone-20261031.png"
+  },
+  "grimoiredelphen": {
+    "name": "Grimoire D’Elphen",
+    "image": "/assets/parents/grimoire-delphen-20261031.png"
+  },
+  "heartbreaker": {
+    "name": "Heartbreaker",
+    "image": "/assets/parents/heartbreaker-20261031.png"
+  },
+  "mylordcarthago": {
+    "name": "MyLord Carthago",
+    "image": "/assets/parents/mylord-carthago-20261031.png"
+  },
+  "vagabonddelapomme": {
+    "name": "Vagabond de la Pomme",
+    "image": "/assets/parents/vagabond-de-la-pomme-20261031.png"
+  },
+  "ziroccoblue": {
+    "name": "Zirocco Blue",
+    "image": "/assets/parents/zirocco-blue-20261031.png"
+  }
+}

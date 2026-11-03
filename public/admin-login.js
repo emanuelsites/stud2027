@@ -1,0 +1,4 @@
+'use strict';
+const form=document.querySelector('#admin-login-form'),statusEl=form.querySelector('[role=status]');
+document.querySelector('#toggle-password').onclick=()=>{const input=form.elements.password,show=input.type==='password';input.type=show?'text':'password';const b=document.querySelector('#toggle-password');b.textContent=show?'Ocultar':'Mostrar';b.setAttribute('aria-label',show?'Ocultar senha':'Mostrar senha')};
+form.onsubmit=async e=>{e.preventDefault();const b=form.querySelector('[type=submit]');b.disabled=true;statusEl.textContent='Entrando…';try{const r=await fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:form.elements.username.value,password:form.elements.password.value})});const out=await r.json();if(!r.ok)throw Error(out.error);location.assign('/admin/')}catch(err){statusEl.textContent=err.message;b.disabled=false;form.elements.password.focus()}};

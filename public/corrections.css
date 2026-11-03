@@ -1,0 +1,102 @@
+/* Shared presentation for commercial codes and the sire/dam pair. */
+.commercial-genetics{font-size:13px;line-height:1.65;color:var(--muted);margin:10px 0 18px}.pregnancy-state{font-size:11px;color:var(--brown);background:var(--pale);padding:10px 12px;margin:10px 0 16px}.parent-pair{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:100%;width:100%;gap:1px;background:var(--beige);overflow:hidden}.parent-pair .parent-photo{position:relative;min-width:0;height:100%;display:flex;flex-direction:column;background:var(--pale);overflow:hidden}.parent-pair .parent-photo>img{position:static!important;inset:auto!important;width:100%;height:calc(100% - 62px);min-height:0;flex:1;object-fit:contain!important;object-position:center;transform:none!important}.parent-pair .parent-label{position:static!important;display:block!important;flex:0 0 auto;text-align:left;background:#fff;color:var(--brown);padding:10px 12px;font-size:9px;letter-spacing:.08em;line-height:1.3;min-height:62px}.parent-label strong{display:block;margin-top:5px;font-size:11px;font-weight:500;color:var(--ink);letter-spacing:0}.parent-photo-pending{display:flex;align-items:center;justify-content:center;flex:1;padding:20px;font-size:11px;line-height:1.6;color:var(--muted);text-align:center}.crossing-visual .parent-pair{height:100%}.mare-visual>.parent-pair{min-height:440px;height:100%}.product-card .image-button{position:relative}.product-card .sold-badge{z-index:3}.detail-content>.parent-pair{height:340px;margin-bottom:26px}.education-card{background:var(--pale);padding:36px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;border:1px solid var(--line)}.education-card>img{width:70px;height:70px;object-fit:contain}.education-card h3{font-size:28px;font-weight:500;margin:0}.education-card p{font-size:13px;line-height:1.8;max-width:430px;margin:0}.education-card .text-link{margin-top:auto}.mare-card .image-button{background:var(--pale)}.mare-card .mare-photo{object-fit:contain!important;transform:none!important}.library-photo.crossing-visual{aspect-ratio:1.3}.product-card .product-name{font-size:25px}.product-card .product-meta{min-height:65px}.product-card .product-genetics{font-size:12px;line-height:1.6;margin-top:9px;color:var(--muted)}
+.correction-summary{background:#f7f3ec;border:1px solid #e4d5c0;border-radius:8px;padding:18px;margin-bottom:22px}.correction-summary a{margin-left:8px}.admin-issues{display:grid;gap:12px}.admin-issue{padding:16px;border:1px solid #e7e2da;border-radius:8px}.admin-issue h3{font-size:15px;margin:0 0 6px}.admin-issue p{font-size:12px;margin:6px 0}.admin-parent-fields{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#faf8f4;border:1px solid #e7e2da;padding:20px;border-radius:8px}.admin-parent-fields img{width:100%;height:140px;object-fit:contain}.admin-review-toggle{display:flex!important;align-items:center;gap:10px!important}.admin-review-toggle input{width:auto!important}.issue-kind{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#725432;margin-bottom:7px}
+.parent-pair .parent-label{width:100%!important;max-width:none!important;left:auto;right:auto;bottom:auto;box-sizing:border-box}
+@media(max-width:700px){.parent-pair .parent-label{padding:8px;font-size:8px;min-height:64px}.parent-label strong{font-size:10px}.mare-visual>.parent-pair{min-height:320px}.education-card{padding:24px}.education-card h3{font-size:24px}.admin-parent-fields{grid-template-columns:1fr}.detail-content>.parent-pair{height:310px}.parent-photo-pending{font-size:10px;padding:12px}}
+
+/* Photography fills its frame. Logos, icons and the full-size viewer stay intact. */
+.library-photo>img,
+.animal-photo-gallery .mare-main-photo img,
+.mare-main-photo>img,
+.foal-photo,
+.detail-content .foal-photo,
+.story-photo img,
+.history-cover,
+.article-cover,
+.animal-video-poster>img{object-fit:cover;object-position:50% 45%}
+.mare-card .mare-photo,
+.parent-pair .parent-photo>img{object-fit:cover!important;object-position:50% 45%}
+.foal-photo,.mare-card .mare-photo{display:block}
+.story-photo{overflow:hidden}
+/* Focal points for the portrait originals and subjects near the edge. */
+.library-photo>img[src*="5663cf91475f64eb4f"],
+.mare-main-photo img[src*="5663cf91475f64eb4f"],
+.parent-photo>img[src*="5663cf91475f64eb4f"]{object-position:50% 90%}
+.library-photo>img[src*="dd0d5e6fd6b242ed32"],
+.mare-main-photo img[src*="dd0d5e6fd6b242ed32"],
+.parent-photo>img[src*="dd0d5e6fd6b242ed32"]{object-position:50% 20%}
+.parent-photo>img[src*="4e6a6fa77144bdd90d"]{object-position:75% 55%}
+.parent-photo>img[src$="chacco.webp"],
+.parent-photo>img[src$="comme.webp"],
+.parent-photo>img[src$="baloubet.webp"],
+.parent-photo>img[src$="uricas.webp"]{object-position:50% 30%}
+
+/* Parent identity has priority over the secondary catalogue facts. */
+.mare-facts>div:nth-child(-n+2) dt{display:flex;align-items:center;gap:7px;font-size:13px;line-height:1.5;color:var(--brown);margin-bottom:7px}
+.mare-facts>div:nth-child(-n+2) dt .parent-sex{display:inline-block;flex:0 0 22px;width:22px;height:22px;min-width:22px;overflow:visible;color:var(--brown);margin:0;vertical-align:middle}
+.mare-facts>div:nth-child(-n+2) dd{font-size:18px;line-height:1.45;font-weight:500;overflow-wrap:anywhere}
+.parent-pair .parent-label{font-size:11px;line-height:1.4;min-height:70px;padding:11px 13px}
+.parent-pair .parent-label strong{font-size:14px;line-height:1.45;margin-top:4px;overflow-wrap:anywhere}
+@media(max-width:700px){.mare-facts>div:nth-child(-n+2) dt{font-size:12px}.mare-facts>div:nth-child(-n+2) dd{font-size:17px}.parent-pair .parent-label{font-size:10px;padding:10px;min-height:68px}.parent-pair .parent-label strong{font-size:13px}}
+
+/* Full photographs define their frames; no enlargement crops ears, heads or legs. */
+.library-photo:not(.crossing-visual),.library-photo.crossing-visual,
+.animal-photo-gallery .mare-main-photo{aspect-ratio:auto;height:auto;min-height:0;background:#fff}
+.library-photo>img,.animal-photo-gallery .mare-main-photo img,.mare-main-photo>img,
+.foal-photo,.detail-content .foal-photo,.mare-card .mare-photo,
+.story-photo img,.history-cover,.article-cover{position:static;display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain!important;object-position:center;transform:none!important}
+.mare-visual{align-self:center}
+.story-photo{height:auto}
+.parent-pair,.editorial-product .parent-pair,.detail-content .parent-pair,
+.crossing-visual .parent-pair,.mare-visual>.parent-pair{height:auto;min-height:0;max-height:none;aspect-ratio:auto;align-items:stretch;background:#fff}
+.parent-pair .parent-photo{height:auto;background:#fff}
+.parent-pair .parent-photo>img{height:auto;min-height:0;flex:0 0 auto;aspect-ratio:auto;object-fit:contain!important;object-position:center;transform:none!important}
+.parent-pair .parent-photo-pending{flex:0 0 auto;aspect-ratio:var(--parent-photo-ratio,1.5);min-height:0;background:var(--pale)}
+.parent-pair .parent-label{flex:1 0 auto}
+.animal-video-stage:has(>.animal-video-poster),.visual-video-stage:has(>.visual-video-poster){aspect-ratio:auto;height:auto}
+.animal-video-poster,.visual-video-poster{height:auto}
+.animal-video-poster>img,.visual-video-poster img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+.gallery-thumbnails img,.video-options img{object-fit:contain;background:#fff}
+/* Approved parent presentation: equal halves, landscape frames and captions below. */
+.parent-pair{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0}
+.parent-pair .parent-photo>img,.parent-pair .parent-photo-pending{display:block;width:100%;height:auto;aspect-ratio:3/2;flex:0 0 auto;object-fit:contain!important;background:#faf8f4}
+.parent-pair .parent-photo-pending{display:flex}
+.parent-pair .parent-label{min-height:98px;flex:1 0 auto;padding:12px 13px}
+.parent-pair .parent-label strong{word-break:normal;overflow-wrap:normal;hyphens:none}
+/* Shared row tracks align headings, facts and actions across every catalogue row. */
+.library-grid{row-gap:42px}
+.library-grid>.library-card{display:grid;grid-template-rows:subgrid;grid-row:span 7;row-gap:0;min-width:0;align-content:start}
+.library-card>.library-photo{grid-row:1;align-self:start}
+.library-card>.product-kind{grid-row:2}
+.library-card>h3{grid-row:3}
+.library-card>.commercial-genetics,.library-card>.library-excerpt{grid-row:4}
+.library-card>.pregnancy-state{grid-row:5}
+.library-card>.library-line{grid-row:6}
+.library-card>.text-link{grid-row:7;align-self:end}
+#catalog-grid,#foal-grid{row-gap:42px}
+#catalog-grid>.product-card,#foal-grid>.product-card{display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:0;min-width:0}
+.product-card>.image-button{grid-row:1;align-self:start}
+.product-card>.product-kind{grid-row:2}
+.product-card>.product-name{grid-row:3}
+.product-card>.product-genetics{grid-row:4}
+.product-card>.product-meta{grid-row:5}
+.product-card>.text-link{grid-row:6;align-self:end}
+#mare-grid{row-gap:42px}
+#mare-grid>.mare-card{display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:0;min-width:0}
+.mare-card>.image-button{grid-row:1;align-self:start}
+.mare-card>h3{grid-row:2}
+.mare-card>p{grid-row:3}
+.mare-card>.matrix-profile-link{grid-row:4}
+.mare-card>.text-link:not(.matrix-profile-link){grid-row:5;align-self:end}
+.library-photo:not(.crossing-visual){aspect-ratio:3/2}
+.library-photo:not(.crossing-visual)>img{height:100%;aspect-ratio:auto;object-fit:contain!important}
+.product-card .foal-photo,.mare-card .mare-photo{aspect-ratio:3/2;height:auto;object-fit:contain!important}
+@media(max-width:700px){.parent-pair .parent-label{min-height:98px;padding:10px}.library-grid,#catalog-grid,#foal-grid{row-gap:32px}}
+@media(max-width:800px){
+ .hero{display:flex;flex-direction:column;aspect-ratio:auto;min-height:0;background:var(--pale)}
+ .hero-image{position:static;display:block;width:100%;height:auto;object-fit:contain;object-position:center}
+ .hero:after{display:none}
+ .hero-content{max-width:none;color:var(--ink)}
+ .hero .eyebrow,.hero-link{color:var(--brown)}
+ .hero-description{color:var(--ink);margin-top:20px}
+}
