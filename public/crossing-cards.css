@@ -36,3 +36,18 @@
 @media(max-width:800px){.hero-content{position:relative;top:auto;left:auto}.library-grid:has(>.crossing-offer),#catalog-grid:has(>.crossing-offer){grid-template-columns:1fr;gap:24px}.crossing-offer .parent-label strong{font-size:21px}}
 @media(max-width:480px){.wrap:has(>.library-grid>.crossing-offer),.wrap:has(#catalog-grid>.crossing-offer){width:calc(100% - 32px)}.library-grid>.crossing-offer,#catalog-grid>.crossing-offer{padding:10px}.crossing-offer .crossing-code{font-size:10px;letter-spacing:.1em;margin-bottom:14px}.crossing-offer .parent-label{min-height:112px;padding-top:14px;font-size:10px}.crossing-offer .parent-label strong{font-size:18px}.crossing-offer .parent-photo-pending{font-size:10px;padding:10px}}
 @media(prefers-reduced-motion:reduce){.crossing-action span{transition:none}}
+
+/* Client review, 2026-11-04: separate catalog sections and balanced parent frames. */
+#catalog-grid.catalog-grouped{display:block}
+.catalog-category{margin:0 0 56px}
+.catalog-category>.section-head{margin-bottom:24px;gap:20px}
+.catalog-category>.section-head>h3{font-size:26px;font-weight:500;margin:0;color:var(--brown)}
+.catalog-category>.product-grid:has(>.crossing-offer){grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.catalog-category .crossing-offer{display:flex;flex-direction:column;padding:16px;border:1px solid var(--beige)}
+.catalog-category .crossing-action{margin-top:auto}
+.parent-pair .parent-photo>img,.crossing-offer .parent-photo>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain!important;background:#f7f4ef}
+.crossing-offer .crossing-code{font-size:clamp(15px,1.5vw,20px);line-height:1.5;letter-spacing:.01em;text-transform:none;overflow-wrap:anywhere}
+@media(max-width:800px){.catalog-category>.product-grid:has(>.crossing-offer){grid-template-columns:1fr}.catalog-category>.section-head{align-items:flex-start;flex-wrap:wrap}}
+
+/* Landscape outpaints fill the frame; the horse remains entirely visible. */
+.parent-pair .parent-photo>img[src*="-16x9-20261104.png"]{object-fit:cover!important}

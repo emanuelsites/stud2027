@@ -1,5 +1,5 @@
 {
   "ecnaja": {"image":"/assets/parents/ec-naja-16x9-20261101.png","placeholder":false},
-  "bhetaniajmen": {"image":"/assets/templates/photo-unavailable-16x9.png","placeholder":true},
-  "bethaniajmen": {"image":"/assets/templates/photo-unavailable-16x9.png","placeholder":true}
+  "bhetaniajmen": {"image":"/assets/templates/photo-unavailable-16x9-vercel.webp","placeholder":true},
+  "bethaniajmen": {"image":"/assets/templates/photo-unavailable-16x9-vercel.webp","placeholder":true}
 }

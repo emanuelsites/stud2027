@@ -1,31 +1,33 @@
 {
   "name": "studpb-vercel",
-  "version": "30.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.13.0 <25"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "node scripts/build-upload.mjs && next build --webpack",
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "node scripts/build-client.mjs && next build",
     "start": "next start",
-    "db:import": "node scripts/import-db.mjs",
-    "test": "node scripts/build-upload.mjs && node tests/vercel-runtime.mjs"
+    "db:setup": "node --env-file-if-exists=.env.local scripts/setup-db.mjs",
+    "db:export": "node --env-file-if-exists=.env.local scripts/export-db.mjs",
+    "admin:password": "node --env-file-if-exists=.env.local scripts/admin-password.mjs",
+    "check": "next typegen && tsc --noEmit",
+    "test": "node tests/integration.mjs"
   },
   "dependencies": {
-    "next": "16.4.4",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
     "@libsql/client": "0.18.0",
-    "@vercel/blob": "2.8.2"
+    "@vercel/blob": "2.8.2",
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "esbuild": "0.27.4",
-    "typescript": "5.9.3",
-    "@types/node": "22.19.19",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@cloudflare/workers-types": "4.20260515.1"
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.3"
   }
 }

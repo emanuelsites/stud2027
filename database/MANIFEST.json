@@ -1,0 +1,36 @@
+{
+  "application": "Stud PB Vercel",
+  "source_version": 36,
+  "date": "2026-11-04",
+  "counts": {
+    "entries": 73,
+    "settings": 24,
+    "source_records": 408,
+    "media": 0,
+    "members": 0,
+    "inquiries": 0,
+    "audit": 0,
+    "admin_users": 0,
+    "visual_pages": 1,
+    "url_redirects": 30
+  },
+  "live_credentials_included": false,
+  "files": {
+    "studpb.sql": {
+      "bytes": 2416946,
+      "sha256": "bf186dc8953f602086b1a98ee5c398ff1682dc4805253401919d5fd99a315cee"
+    },
+    "studpb.sqlite": {
+      "bytes": 2863104,
+      "sha256": "4de98b80f420316dbb3c6f778bb0954738ea3fa271b4898b1af61147c72d6d5b"
+    },
+    "content.json": {
+      "bytes": 2677556,
+      "sha256": "76ba76e98fe08f8eeccfebc3f972f8c48d6705f42ef01beb6e4b1524f1581e08"
+    },
+    "schema.sql": {
+      "bytes": 3034,
+      "sha256": "f023ddb3c43adccacf7a1b1a43a54cbce8edce73141b7bb77d2fca233d4a2d4e"
+    }
+  }
+}

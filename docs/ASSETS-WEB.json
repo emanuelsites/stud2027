@@ -1,0 +1,431 @@
+[
+  {
+    "original": "/assets/foals-20261101/e-belle-pb-studio.png",
+    "web": "/assets/foals-20261101/e-belle-pb-studio-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1824981,
+    "web_bytes": 1143086,
+    "pixel_identical": true,
+    "original_sha256": "b0d444a63b455a244b39488e83eea7ca6630242b13b53763d98e122ad09ac4f0",
+    "web_sha256": "644d339578ce0373dc356a1b7db1dfe15a706175e1e7894f96d34e500decd0ee"
+  },
+  {
+    "original": "/assets/foals-20261101/ementina-pb-studio.png",
+    "web": "/assets/foals-20261101/ementina-pb-studio-vercel.webp",
+    "dimensions": [
+      1672,
+      940
+    ],
+    "original_bytes": 1817310,
+    "web_bytes": 1158762,
+    "pixel_identical": true,
+    "original_sha256": "3e01a7e3798b3a5cbcd3a93f964a38d9e78eabac8ce31953c0960dd1fa54fa2a",
+    "web_sha256": "b61729d2fccbbcf2df98a60502e94922ad7bbee4509e2ef57547a2797efcd3e2"
+  },
+  {
+    "original": "/assets/foals-20261101/hello-my-dame-pb-studio.png",
+    "web": "/assets/foals-20261101/hello-my-dame-pb-studio-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1985942,
+    "web_bytes": 1276128,
+    "pixel_identical": true,
+    "original_sha256": "aa13e734db4062efc478717070e2075fd56e8973c01d12323fbb0765ff6c8767",
+    "web_sha256": "d5cca5b41a0650aaed3f6528a511afb86dae6deaff605c5462333fdcf08be060"
+  },
+  {
+    "original": "/assets/foals-20261101/laloubet-pb-studio.png",
+    "web": "/assets/foals-20261101/laloubet-pb-studio-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1873677,
+    "web_bytes": 1184438,
+    "pixel_identical": true,
+    "original_sha256": "5461ad1d5ebfd3f1bcb94ef1e8a4355cb0e4bdeacf2a6da654cf6c48b89a5ece",
+    "web_sha256": "45ecafaaf285cb3f5b7800d0177d35498af8d878543dd2ff58e816574980966e"
+  },
+  {
+    "original": "/assets/foals-20261101/only-belle-pb-studio.png",
+    "web": "/assets/foals-20261101/only-belle-pb-studio-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1934100,
+    "web_bytes": 1260562,
+    "pixel_identical": true,
+    "original_sha256": "01c3cd20dac0916894da35ef4d6c1f00195626423e55bbea42a74b5c674e48d6",
+    "web_sha256": "702236ff72e2fe9525cfd5137c2756092e33523fac919fe50ec6fcb561cc7b7c"
+  },
+  {
+    "original": "/assets/imported/guinness-de-la-violle-1920x1080-20261104.png",
+    "web": "/assets/imported/guinness-de-la-violle-1920x1080-20261104-vercel.webp",
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "original_bytes": 3160429,
+    "web_bytes": 2174774,
+    "pixel_identical": true,
+    "original_sha256": "38b3d418cb98ebd68147c15356b16f9992d17bdb820ad7df4ef94f26f896b61e",
+    "web_sha256": "5177183336b3d17d679e15225789698a4025f93c1080cc3e76473874ca6ce877"
+  },
+  {
+    "original": "/assets/parents/balance-z-16x9-20261104.png",
+    "web": "/assets/parents/balance-z-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2860214,
+    "web_bytes": 1982686,
+    "pixel_identical": true,
+    "original_sha256": "e1057424ac4dc8ae315a4c719e03a26a657b2e7042295e54fc850725ab4b2481",
+    "web_sha256": "088083fb8b96fd50ce31d5e87fec07df99439e2ee72243a8b020a5ddbd0be1cf"
+  },
+  {
+    "original": "/assets/parents/baloubet-du-rouet-16x9-20261104.png",
+    "web": "/assets/parents/baloubet-du-rouet-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2907336,
+    "web_bytes": 1943788,
+    "pixel_identical": true,
+    "original_sha256": "a34e34c45ce6ab47a71b2b9ad1fabf89da663ec653b0921f80513bbed6577984",
+    "web_sha256": "74edf518e84666f1a2730a50407d9d82de7f01d79dd566b61f81582d47d6339d"
+  },
+  {
+    "original": "/assets/parents/bhetania-jmen-template-20261101.png",
+    "web": "/assets/parents/bhetania-jmen-template-20261101-vercel.webp",
+    "dimensions": [
+      971,
+      1619
+    ],
+    "original_bytes": 1249956,
+    "web_bytes": 896696,
+    "pixel_identical": true,
+    "original_sha256": "48f19f7c787ba2cd7f5da388545f00ef93aa22ee608038418db511fc6eddceb8",
+    "web_sha256": "5a78dbde70f4e00268061f7b48cd4379c1b749df8a1c58651898cc8b99338f13"
+  },
+  {
+    "original": "/assets/parents/chacco-blue-16x9-20261104.png",
+    "web": "/assets/parents/chacco-blue-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2380959,
+    "web_bytes": 1655830,
+    "pixel_identical": true,
+    "original_sha256": "3d147411dc1d81fba35b5b2e38a87b07bae8619deb42a2293caf322a7b2bd3b9",
+    "web_sha256": "46bc87d32776b7a36e8b6ab86a3cb2e2474d93e780f15c55064c0f59b1369a78"
+  },
+  {
+    "original": "/assets/parents/chacoon-blue-16x9-20261104.png",
+    "web": "/assets/parents/chacoon-blue-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2588748,
+    "web_bytes": 1791476,
+    "pixel_identical": true,
+    "original_sha256": "37e51781e7ca7e493d76bf55ad1752a88bd23ff1805aafb42d70cde187cdb89a",
+    "web_sha256": "568e44d434e3805a40381e5f51ff014479a07291a176571a051d0dfa158eb8e9"
+  },
+  {
+    "original": "/assets/parents/cibelle-vd-berghoeve-z-16x9-20261104.png",
+    "web": "/assets/parents/cibelle-vd-berghoeve-z-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2052586,
+    "web_bytes": 1435298,
+    "pixel_identical": true,
+    "original_sha256": "90e9ed1937be752d824de50308ba4d45369584588a32673a89f5c810c2331f06",
+    "web_sha256": "a1cca376124433b4cdc203d31604fae87fa7ac787f88e39b04c13ca6cee76d6d"
+  },
+  {
+    "original": "/assets/parents/comme-il-faut-16x9-20261104.png",
+    "web": "/assets/parents/comme-il-faut-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2344552,
+    "web_bytes": 1653524,
+    "pixel_identical": true,
+    "original_sha256": "4e658461a93e2925a65cc33f2065d49fbf4c6c60ab29a2e8cc4a99db48828ded",
+    "web_sha256": "3ca539f9059b2c87614259d994ceba7db8f00022015b2bf304c5fc07c5bb08f9"
+  },
+  {
+    "original": "/assets/parents/conthargos-16x9-20261104.png",
+    "web": "/assets/parents/conthargos-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1962250,
+    "web_bytes": 1355012,
+    "pixel_identical": true,
+    "original_sha256": "f6a788208b900c200c331b289062c63458e103dd126ff5996864e4672f4d8c1a",
+    "web_sha256": "9aa4348c5bd310320b86964ed0eabf5fe1e86e794aff6bc0f4dc93b9d2e7dd2a"
+  },
+  {
+    "original": "/assets/parents/cumano-16x9-20261104.png",
+    "web": "/assets/parents/cumano-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2384089,
+    "web_bytes": 1582618,
+    "pixel_identical": true,
+    "original_sha256": "7d31a2f3e91e1139cae4b9908360d77adeb8222a8b68f28ace357b5fe1a9b7c2",
+    "web_sha256": "d5e7435624edfb687724079eda168959f50b4b1059c9183d6802d61e7c807630"
+  },
+  {
+    "original": "/assets/parents/dame-blanche-of-picobello-z-16x9-20261104.png",
+    "web": "/assets/parents/dame-blanche-of-picobello-z-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2597365,
+    "web_bytes": 1770966,
+    "pixel_identical": true,
+    "original_sha256": "b35e74c6fa3b3a58e0eabc7d5d8c11eb870a72a8fef2955406a672de3a2c7a38",
+    "web_sha256": "ae0838a1b9d3206964e9c79ac0de833ca65c336cb3bcc709734744a52a17e3ce"
+  },
+  {
+    "original": "/assets/parents/diamant-de-semilly-16x9-20261104.png",
+    "web": "/assets/parents/diamant-de-semilly-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2167550,
+    "web_bytes": 1542218,
+    "pixel_identical": true,
+    "original_sha256": "f8ddf7333d2aaf99b2c763bb563dc019a7ae37d77375f0c25b804154344a49e3",
+    "web_sha256": "040c6a814056cd1a5b15b95b592fafd5020f5e1222c039684f02dc1e3b888f1e"
+  },
+  {
+    "original": "/assets/parents/diamant-de-semilly-20261031.png",
+    "web": "/assets/parents/diamant-de-semilly-20261031-vercel.webp",
+    "dimensions": [
+      600,
+      1000
+    ],
+    "original_bytes": 1041023,
+    "web_bytes": 685210,
+    "pixel_identical": true,
+    "original_sha256": "4ebcbec9ae68e012c59792dc255e6b54e8308b30a7217967077cf7d1071afade",
+    "web_sha256": "b1d650b66dc25b2868218d7078872e0d60428f19571a145d1f6417f62e1feabb"
+  },
+  {
+    "original": "/assets/parents/eclypse-des-forets-16x9-20261104.png",
+    "web": "/assets/parents/eclypse-des-forets-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2028663,
+    "web_bytes": 1394818,
+    "pixel_identical": true,
+    "original_sha256": "ede6905c742b2fe36f655b7eb6f0e2c0fb76332c9f2a6d92bd2e8c333450335a",
+    "web_sha256": "331c5f3e60efac30bd066565ab7be3aecda38e5115f9345369101846a363b0e5"
+  },
+  {
+    "original": "/assets/parents/emerald-van-16x9-20261104.png",
+    "web": "/assets/parents/emerald-van-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2188502,
+    "web_bytes": 1465722,
+    "pixel_identical": true,
+    "original_sha256": "b4de0d2470cd8095fa8d32000fc46024aafa8f474963cf0a69a0d9fd11454197",
+    "web_sha256": "b0862e42e9097333262cd45a35f60acae2e1878b84c27bd403ae799a2ec9afe4"
+  },
+  {
+    "original": "/assets/parents/ermitage-kalone-16x9-20261104.png",
+    "web": "/assets/parents/ermitage-kalone-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1175686,
+    "web_bytes": 732594,
+    "pixel_identical": true,
+    "original_sha256": "b6270bb625c4a69ec054db0f0cc9094777f1d2bf2dd53583e1f6729c24579b42",
+    "web_sha256": "c6f1f29fab62e27ac6163374d42189ee1be7b3068c8a091f600e8ee90a9ff2a1"
+  },
+  {
+    "original": "/assets/parents/grimoire-delphen-16x9-20261104.png",
+    "web": "/assets/parents/grimoire-delphen-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1567737,
+    "web_bytes": 962646,
+    "pixel_identical": true,
+    "original_sha256": "bc532f0762fbf811814979790286a84948f13c19f2c37c26a7a7fa3ee1d58727",
+    "web_sha256": "41af89baa3c38951cd490139f94d35c992f3f55f49405e4d432214a4beaed90f"
+  },
+  {
+    "original": "/assets/parents/heartbreaker-16x9-20261104.png",
+    "web": "/assets/parents/heartbreaker-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2929312,
+    "web_bytes": 2011420,
+    "pixel_identical": true,
+    "original_sha256": "fefd49bc33109e6a7d3245dd2db27da40627a1e4a4006e1256ce4f4a33f561ee",
+    "web_sha256": "6f5c613be15470c3432678cef72615a920d27e805e917e1851da6fb18f1a7e28"
+  },
+  {
+    "original": "/assets/parents/hph-wind-tok-16x9-20261104.png",
+    "web": "/assets/parents/hph-wind-tok-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 3226395,
+    "web_bytes": 2142524,
+    "pixel_identical": true,
+    "original_sha256": "3d9a4cfbae2775b6d5247186e37ec233f63d2ad05fe250e75c1d4d071027ddb4",
+    "web_sha256": "ef29f1f3f73bd48051a19bf0d48c055d7a2eda0bb9dedac1fd40abf3850534b3"
+  },
+  {
+    "original": "/assets/parents/lady-scarlett-jmen-16x9-20261104.png",
+    "web": "/assets/parents/lady-scarlett-jmen-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2771834,
+    "web_bytes": 1896588,
+    "pixel_identical": true,
+    "original_sha256": "66fbca1dfaece88a1fea3254af26267a141318f409c9ef734f5aecc1be9f6c20",
+    "web_sha256": "cdad549ebc1e32b4916aee65d1a839b791351d269b80c9da001894c1871beed9"
+  },
+  {
+    "original": "/assets/parents/lika-jt-16x9-20261104.png",
+    "web": "/assets/parents/lika-jt-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2882430,
+    "web_bytes": 2018768,
+    "pixel_identical": true,
+    "original_sha256": "5dac0f5083fd6a344c131e9b1746a40cd0e337e097313739e786fc7e9c46769e",
+    "web_sha256": "bd2302008eb2a33b714560213ff5b5eca3d80ad92ec6e0adf5bfec95dcd3b05c"
+  },
+  {
+    "original": "/assets/parents/mademoiselle-de-muze-16x9-20261104.png",
+    "web": "/assets/parents/mademoiselle-de-muze-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2988495,
+    "web_bytes": 1891474,
+    "pixel_identical": true,
+    "original_sha256": "86ec27c32206abc92aacd013dc18f29b328a528c9a2514071fc80de701906197",
+    "web_sha256": "77d28704551c246392c82a5f5e1779729df4ae56c36fc21ff7a37f252f60c0fe"
+  },
+  {
+    "original": "/assets/parents/mylord-carthago-16x9-20261104.png",
+    "web": "/assets/parents/mylord-carthago-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2476981,
+    "web_bytes": 1691138,
+    "pixel_identical": true,
+    "original_sha256": "5eb4a2a718c5cd70dbd73126ff45a96ccb8495987c8c9ed3dc0dd8dcee6e64c5",
+    "web_sha256": "45c35999f772bb5153e8253cf6bfa5ad99520c436d257296d04c0134704a1d30"
+  },
+  {
+    "original": "/assets/parents/quellanotte-di-villagana-16x9-20261104.png",
+    "web": "/assets/parents/quellanotte-di-villagana-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2772986,
+    "web_bytes": 1939394,
+    "pixel_identical": true,
+    "original_sha256": "079fc7bbbd771b5deb43e1a1f53365e459cdc240e5d5b398ca9456b0a3c54232",
+    "web_sha256": "e5ee01ea8cb6f74e9dc68b867999facabe37718ce78da3fbc4c428af50e19988"
+  },
+  {
+    "original": "/assets/parents/uricas-van-de-kattevennen-16x9-20261104.png",
+    "web": "/assets/parents/uricas-van-de-kattevennen-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 3348810,
+    "web_bytes": 2298074,
+    "pixel_identical": true,
+    "original_sha256": "8d0c98fdd0061f0bc9820d80e50d8c829cccec6f6fefbbb3475dd301a05e567e",
+    "web_sha256": "3dee9f3a5ac17d4a10f132054d1ea6ebd67984b67c1327c51a97962179ae8da1"
+  },
+  {
+    "original": "/assets/parents/vagabond-de-la-pomme-16x9-20261104.png",
+    "web": "/assets/parents/vagabond-de-la-pomme-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 2753585,
+    "web_bytes": 1803694,
+    "pixel_identical": true,
+    "original_sha256": "24247d3bb4f9373ea63fc30fa66a71acc4cccf33db562b623578b982a184b0cf",
+    "web_sha256": "e21c1883e0e5f28845e8b6d901dd1542edd57b68c30f7348bfa4c68017fe005d"
+  },
+  {
+    "original": "/assets/parents/zirocco-blue-16x9-20261104.png",
+    "web": "/assets/parents/zirocco-blue-16x9-20261104-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 3415893,
+    "web_bytes": 2270644,
+    "pixel_identical": true,
+    "original_sha256": "e29f0bfabee0f400f675a7de076b55433106c383fb24a7f9846837d61be35f9f",
+    "web_sha256": "a3bf87a3876bc40fe6ed53a50b43f717eb06aed86e8cefd10c74ea35c03c6733"
+  },
+  {
+    "original": "/assets/templates/photo-unavailable-16x9.png",
+    "web": "/assets/templates/photo-unavailable-16x9-vercel.webp",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "original_bytes": 1558248,
+    "web_bytes": 953558,
+    "pixel_identical": true,
+    "original_sha256": "626a79be36c9dd4cd1286d45e8703368ea75e9ecce299f3d7fd8c5354eea3031",
+    "web_sha256": "e374e49c2e4cd70dc39b55064eec47f9deae8c87407a7a41e76c3e3afaedd837"
+  }
+]

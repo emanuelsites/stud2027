@@ -1147,7 +1147,7 @@
         "pregnancyStatus": "review",
         "editorialReviewPending": true,
         "fatherImage": "/assets/parents/cumano-20261031.png",
-        "motherImage": "/assets/templates/photo-unavailable-16x9.png"
+        "motherImage": "/assets/templates/photo-unavailable-16x9-vercel.webp"
       },
       "pedigree": {
         "name": "Cumano × Bhetania JMen",
@@ -2608,7 +2608,7 @@
         "commercialName": "Próxima geração 15",
         "pregnancyStatus": "review",
         "editorialReviewPending": true,
-        "fatherImage": "/assets/parents/diamant-de-semilly-20261031.png"
+        "fatherImage": "/assets/parents/diamant-de-semilly-20261031-vercel.webp"
       },
       "pedigree": {
         "name": "Diamant de Semilly × Lady Scarlett JMen",
@@ -6365,7 +6365,7 @@
       "kind": "animal",
       "title": "Bhetania JMen",
       "body": "",
-      "image": "/assets/templates/photo-unavailable-16x9.png",
+      "image": "/assets/templates/photo-unavailable-16x9-vercel.webp",
       "gallery": [],
       "info": {
         "sex": "Fêmea",

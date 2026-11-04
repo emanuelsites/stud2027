@@ -4,6 +4,8 @@ import genealogyUpdates from './content/genealogy-audit-updates.json';
 import mediaUpdates from './content/media-updates.json';
 import {normalizeVideos} from './media';
 import {applyCorrections} from './corrections';
+import {applyClientReview} from './client-review';
+import {applyVerifiedPedigreeCompletions} from './pedigree-completions';
 import {forecastDate} from './catalog';
 export type Entry={id:string;slug:string;kind:string;title:string;body:string;image:string;gallery:string[];info:Record<string,any>;pedigree:any;categories:string[];status:string;source_url:string;published_at:string;updated_at:string;version:number};
 export const initial=seed;
@@ -68,7 +70,7 @@ export async function initialize(db:D1Database){
   updates.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_animal_media_20261019_v1','1')"));
   await db.batch(updates);
  }
- if(await db.prepare("SELECT value FROM settings WHERE key='initialized_v1'").first()){await applyCorrections(db);return;}
+ if(await db.prepare("SELECT value FROM settings WHERE key='initialized_v1'").first()){await applyCorrections(db);await applyClientReview(db);await applyVerifiedPedigreeCompletions(db);return;}
  const statements:D1PreparedStatement[]=[];
  for(const e of seed.entries)statements.push(db.prepare(`INSERT OR IGNORE INTO entries (${entryColumns.join(',')}) VALUES (${entryColumns.map(()=>'?').join(',')})`).bind(...entryValues(e as Entry)));
  for(const [k,v] of Object.entries(seed.settings))statements.push(db.prepare('INSERT OR IGNORE INTO settings (key,value) VALUES (?,?)').bind(k,v));
@@ -77,6 +79,8 @@ export async function initialize(db:D1Database){
  statements.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_v1','1')"));
  await db.batch(statements);
  await applyCorrections(db);
+ await applyClientReview(db);
+ await applyVerifiedPedigreeCompletions(db);
 }
 export async function listEntries(db:D1Database,all=false){const r=await db.prepare('SELECT * FROM entries'+(all?'':" WHERE status='published'")+' ORDER BY published_at DESC,title').all();return r.results.map(decodeEntry);}
 export async function readSettings(db:D1Database){const r=await db.prepare('SELECT key,value FROM settings').all<{key:string;value:string}>();return Object.fromEntries(r.results.filter(x=>!x.key.startsWith('initialized')).map(x=>[x.key,x.value]));}

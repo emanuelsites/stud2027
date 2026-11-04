@@ -1,4 +1,6 @@
-import {env} from './runtime';
+import {env,clientAddress,siteOrigin,sameOrigin,externalOrigin} from './runtime';
+import {blobUpload} from './blob';
+import {saveMember} from './user-management';
 import {initial,initialize,listEntries,readSettings,validateEntry,entryValues,entryColumns,insertSQL,type Entry} from './store';
 import * as view from './render';
 import homeHTML from './content/home';
@@ -11,7 +13,7 @@ import {displayName,parentImages,available,genetics,statusLabel,reviewIssues,def
 const now=()=>new Date().toISOString();
 const response=(body:string,status=200,type='text/html; charset=utf-8')=>new Response(body,{status,headers:{'Content-Type':type,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'SAMEORIGIN'}});
 const j=(data:any,status=200)=>response(JSON.stringify(data),status,'application/json; charset=utf-8');
-export async function authorized(req:Request,db:D1Database){return localUser(req,db);}
+async function authorized(req:Request,db:D1Database){return localUser(req,db);}
 function protectedEditor(e:Entry,order:string){
  const paths=['m','mm','mmm','mmf','mf','mfm','mff','f','fm','fmm','fmf','ff','ffm','fff'];
  const at=(path:string)=>[...path].reduce((node:any,key)=>node?.[key==='m'?'mother':'father'],e.pedigree);
@@ -39,13 +41,12 @@ function home(entries:Entry[],settings:Record<string,string>){
  let html=homeHTML.replace(/<header class="header">[\s\S]*?<\/header>/,view.header(settings).replace(/^<a class="skip"[\s\S]*?<\/a>/,''));
  html=html.replace(/<footer class="footer">[\s\S]*?<\/footer>/,view.footer(settings));
  html=html.replace('<link rel="stylesheet" href="style.css">','<link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/system.css"><link rel="stylesheet" href="/corrections.css"><link rel="stylesheet" href="/crossing-cards.css">');
+ html=html.replaceAll('https%3A%2F%2Fstudpb-home.isacdesigner.chatgpt.site%2F',encodeURIComponent(siteOrigin()+'/'));
  html=html.replaceAll('https://studpb.com.br/home/nossa-historia/','/nossa-historia/').replaceAll('https://studpb.com.br/home/noticias/','/noticias/').replaceAll(' target="_blank" rel="noopener">Conheça nossa história','>Conheça nossa história').replaceAll(' target="_blank" rel="noopener">Acompanhe as notícias','>Acompanhe as notícias');
- const products=entries.filter(e=>(e.kind==='crossing'||e.categories.includes('potros'))&&available(e)).sort((a,b)=>(a.info.featureOrder||999)-(b.info.featureOrder||999)||(a.info.commercialNumber||999)-(b.info.commercialNumber||999)).map(e=>{
+ const products=entries.filter(e=>(e.kind==='crossing'&&available(e))||(e.kind==='animal'&&e.categories.includes('potros'))).sort((a,b)=>(a.info.featureOrder||999)-(b.info.featureOrder||999)||(a.info.commercialNumber||999)-(b.info.commercialNumber||999)).map(e=>{
   const mother=view.findAnimal(e.info.mother,entries),photos=parentImages(e,entries);
   return {id:e.id,url:view.entryPath(e),type:e.kind==='animal'?'potro':e.categories.includes('congelados')?'embriao':'gestacao',name:displayName(e),genetics:genetics(e),mother:e.info.mother||'Não informada',father:e.info.father||'Não informado',...photos,frameRatio:view.parentFrameRatio(photos.fatherImage,photos.motherImage),image:e.image,year:e.info.year||e.info.forecast||'Sob consulta',line:'Origem materna: '+(mother?.title||e.info.mother||'Consulte a equipe'),availability:e.info.availability,status:statusLabel(e)};
  });
- const mix:any[]=[];const groups=['embriao','gestacao','potro'].map(type=>products.filter(p=>p.type===type));for(let i=0;i<Math.max(...groups.map(g=>g.length));i++)for(const group of groups)if(group[i])mix.push(group[i]);
- products.splice(0,products.length,...mix);
  const mares=entries.filter(e=>e.categories.includes('matriz')&&e.info.homeFeatured&&e.image).sort((a,b)=>(a.info.featureOrder||999)-(b.info.featureOrder||999)).slice(0,6).map(e=>{const descendants=entries.filter(x=>x.id!==e.id&&x.info.mother===e.title),offspring=descendants.some(x=>x.kind==='animal'),crossings=descendants.some(x=>x.kind==='crossing');return {name:e.title,image:e.image,line:genetics(e),url:view.entryPath(e),descendantsURL:offspring?view.entryPath(e)+'#descendentes':crossings?view.entryPath(e)+'#cruzamentos':'',descendantsLabel:offspring?'Conhecer seus descendentes':'Explorar os cruzamentos'};});
  html=html.replace('<article class="editorial-product" id="frozen-highlight"></article>','<article class="editorial-product education-card" id="frozen-highlight"><img src="/assets/icons/embrioes.png" alt="" width="70" height="70"><h3>Embriões congelados.</h3><p>Explore os cruzamentos disponíveis e conheça o pai e a matriz de cada opção.</p><a class="text-link" href="/embrioes/congelados/">Ver embriões congelados →</a></article>');
  html=html.replace('<article class="editorial-product" id="pregnancy-highlight"></article>','<article class="editorial-product education-card" id="pregnancy-highlight"><img src="/assets/icons/gestacoes.png" alt="" width="70" height="70"><h3>Gestações futuras.</h3><p>Conheça a origem da próxima geração e confirme a situação de cada gestação com a equipe.</p><a class="text-link" href="/gestacoes/">Conhecer gestações futuras →</a></article>');
@@ -56,25 +57,25 @@ function home(entries:Entry[],settings:Record<string,string>){
 }
 export async function handle(req:Request):Promise<Response>{
  try{
- const url=new URL(req.url);const path=url.pathname.replace(/\/+$/,'')||'/';const db=env.DB;
+ const incoming=new URL(req.url);const url=new URL(incoming.pathname+incoming.search,externalOrigin(req));const path=url.pathname.replace(/\/+$/,'')||'/';const db=env.DB;
  if(!db)return response('Banco de dados indisponível.',503,'text/plain; charset=utf-8');
- if(req.method!=='GET'){
-  if(req.headers.get('Origin')!==url.origin)return j({error:'Origem da solicitação inválida.'},403);
-  if(Number(req.headers.get('Content-Length')||0)>(path==='/api/upload'?3500000:200000))return j({error:'Arquivo ou conteúdo muito grande.'},413);
+ if(req.method!=='GET'&&path!=='/api/blob/upload'){
+  if(!sameOrigin(req))return j({error:'Origem da solicitação inválida.'},403);
+  if(Number(req.headers.get('Content-Length')||0)>(path==='/api/upload'?10000000:200000))return j({error:'Arquivo ou conteúdo muito grande.'},413);
  }
- await env.ready?.();
  await initialize(db);
+ if(path==='/api/blob/upload')return blobUpload(req,db);
  if(req.method==='GET'&&!path.startsWith('/api/')&&!path.startsWith('/admin')){const redirect=await db.prepare('SELECT * FROM url_redirects WHERE from_path=?').bind(path).first<any>();if(redirect){const target=redirect.entry_id?await db.prepare('SELECT slug,kind FROM entries WHERE id=?').bind(redirect.entry_id).first<any>():null;const to=target?view.entryPath(target):redirect.target_path;if(to&&to.replace(/\/$/,'')!==path)return Response.redirect(url.origin+to+url.search,301);}}
  if(path.startsWith('/media/')){
-  if(req.method!=='GET')return j({error:'Método inválido.'},405);
-  const key=path.slice(7);if(!/^[a-z0-9-]+\.(png|jpg|webp)$/.test(key))return response('Não encontrado',404);
-  const obj=await env.BUCKET?.get(key);if(!obj)return response('Não encontrado',404);
-  return new Response(obj.body,{headers:{'Content-Type':obj.httpMetadata?.contentType||'application/octet-stream','Cache-Control':'public,max-age=86400','X-Content-Type-Options':'nosniff'}});
+  const id=path.slice(7).replace(/\.(png|jpg|webp)$/,'');
+  const row=await db.prepare('SELECT url FROM media WHERE id=?').bind(id).first<{url:string}>();
+  if(row?.url&&/^https:\/\//.test(row.url))return Response.redirect(row.url,302);
+  return response('Mídia não encontrada',404);
  }
  if(path==='/api/inquiries'&&req.method==='POST'){
   const d:any=await req.json();if(d.website)return j({ok:true});
   if(typeof d.name!=='string'||d.name.trim().length<2||d.name.length>120||typeof d.email!=='string'||!/^\S+@\S+\.\S+$/.test(d.email)||d.email.length>200||typeof d.message!=='string'||d.message.trim().length<5||d.message.length>5000||d.consent!==true||typeof d.phone!=='string'||d.phone.length>40||typeof d.interest!=='string'||d.interest.length>100)return j({error:'Confira os campos e autorize o uso dos dados para atendimento.'},400);
-  const hour=now().slice(0,13),ip=req.headers.get('x-real-ip')||req.headers.get('x-forwarded-for')?.split(',')[0]||'anonymous';const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ip+hour)))).map(x=>x.toString(16).padStart(2,'0')).join('');
+  const hour=now().slice(0,13),ip=clientAddress(req);const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ip+hour)))).map(x=>x.toString(16).padStart(2,'0')).join('');
   const limit=await db.prepare('INSERT INTO rate_limits (key,count,expires_at) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(hash,hour).first<{count:number}>();
   if((limit?.count||0)>5)return j({error:'Limite de consultas atingido. Tente mais tarde ou use nosso e-mail.'},429);
   await db.prepare("INSERT INTO inquiries (id,name,email,phone,interest,message,consent_at,created_at,status) VALUES (?,?,?,?,?,?,?,?,'new')").bind(crypto.randomUUID(),d.name.trim(),d.email.trim(),d.phone,d.interest,d.message.trim(),now(),now()).run();
@@ -92,7 +93,7 @@ export async function handle(req:Request):Promise<Response>{
   if(path==='/api/visual/save'&&req.method==='POST'){const out=await visual.saveVisual(db,await req.json(),user.userId);return out.conflict?j({error:'Outra pessoa alterou este conteúdo. Reabra a página para continuar.'},409):j({ok:true});}
   if(path==='/admin/visual'&&req.method==='GET')return response(adminUI.visualEditor(visual.publicPath(url.searchParams.get('path')||'/')));
   if(path==='/admin/preview'&&req.method==='GET'){const p=visual.publicPath(url.searchParams.get('path')||'/');return handle(new Request(url.origin+p,{headers:req.headers}));}
-  if(path==='/api/admin'&&req.method==='GET'){const entries=await listEntries(db,true);return j({user:{name:user.displayName,role:user.role},entries,issues:reviewIssues(entries),settings:await readSettings(db),members:user.role==='admin'?(await db.prepare('SELECT id,email,role,active FROM members').all()).results:[],inquiries:(await db.prepare('SELECT * FROM inquiries ORDER BY created_at DESC LIMIT 500').all()).results});}
+  if(path==='/api/admin'&&req.method==='GET'){const entries=await listEntries(db,true);return j({user:{name:user.displayName,role:user.role},entries,issues:reviewIssues(entries),settings:await readSettings(db),members:user.role==='admin'?(await db.prepare('SELECT id,username,email,role,active FROM admin_users').all()).results:[],inquiries:(await db.prepare('SELECT * FROM inquiries ORDER BY created_at DESC LIMIT 500').all()).results});}
   if(path==='/api/entries'&&req.method==='POST'){
    const e=validateEntry(await req.json());let version=1;
    if(e.id){
@@ -114,12 +115,7 @@ export async function handle(req:Request):Promise<Response>{
    }else{e.id=crypto.randomUUID();e.updated_at=now();e.published_at=now();e.source_url='';e.version=1;if(e.kind==='crossing'){const cat=codeCategory(e);const counter=await db.prepare("INSERT INTO settings (key,value) VALUES (?,'1') ON CONFLICT(key) DO UPDATE SET value=CAST(CAST(value AS INTEGER)+1 AS TEXT) RETURNING value").bind('sequence_'+cat).first<{value:string}>();e.info.commercialNumber=Number(counter!.value);e.info.commercialCategory=cat;e.info.commercialName=e.info.commercialName?.trim()||defaultCommercialName(e,e.info.commercialNumber);}await db.prepare(`INSERT INTO entries (${entryColumns.join(',')}) VALUES (${entryColumns.map(()=>'?').join(',')})`).bind(...entryValues(e)).run();}
    await db.prepare('INSERT INTO audit (id,user_id,action,entry_id,created_at) VALUES (?,?,?,?,?)').bind(crypto.randomUUID(),user.userId,'save',e.id,now()).run();return j({id:e.id,version,url:view.entryPath(e)});
   }
-  if(path==='/api/upload'&&req.method==='POST'){
-   const form=await req.formData(),file=form.get('file');if(!(file instanceof File)||file.size>10000000||file.size===0)return j({error:'Envie uma imagem de até 10 MB.'},400);
-   const bytes=new Uint8Array(await file.arrayBuffer());const png=bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71;const jpeg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255;const webp=String.fromCharCode(...bytes.slice(0,4))==='RIFF'&&String.fromCharCode(...bytes.slice(8,12))==='WEBP';
-   const mime=png?'image/png':jpeg?'image/jpeg':webp?'image/webp':'';if(!mime||mime!==file.type)return j({error:'Formato inválido. Use PNG, JPEG ou WebP.'},400);
-   if(!env.BUCKET)return j({error:'Armazenamento indisponível.'},503);const id=crypto.randomUUID();const key=id+'.'+(png?'png':jpeg?'jpg':'webp');await env.BUCKET.put(key,bytes,{httpMetadata:{contentType:mime}});await db.prepare('INSERT INTO media (id,url,mime,bytes,created_at) VALUES (?,?,?,?,?)').bind(id,'/media/'+key,mime,file.size,now()).run();return j({url:'/media/'+key});
-  }
+  if(path==='/api/upload')return j({error:'Use o envio direto de imagens do painel atualizado.'},410);
   if(path==='/api/settings'&&req.method==='POST'){
    if(user.role!=='admin')return j({error:'Apenas administradores.'},403);
    const data:any=await req.json(),allowed=['pedigree_order','contact_email','contact_whatsapp','address','instagram','youtube','welcome'];
@@ -131,14 +127,13 @@ export async function handle(req:Request):Promise<Response>{
    await db.batch(Object.entries(data).map(([k,v])=>db.prepare('INSERT INTO settings (key,value) VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').bind(k,v)));return j({ok:true});
   }
   if(path==='/api/members'&&req.method==='POST'){
-   if(user.role!=='admin')return j({error:'Apenas administradores.'},403);const d:any=await req.json();if(typeof d.email!=='string'||!/^\S+@\S+\.\S+$/.test(d.email)||d.email.length>200||!['admin','editor'].includes(d.role)||![0,1].includes(d.active))return j({error:'Membro inválido.'},400);
-   if(d.email.toLowerCase()===user.email.toLowerCase()&&(d.active!==1||d.role!=='admin'))return j({error:'Você não pode remover seu próprio acesso de administrador.'},400);
-   await db.prepare('INSERT INTO members (id,email,user_id,role,active) VALUES (?,?,NULL,?,?) ON CONFLICT(email) DO UPDATE SET role=excluded.role,active=excluded.active').bind(crypto.randomUUID(),d.email.toLowerCase(),d.role,d.active).run();return j({ok:true});
+   if(user.role!=='admin')return j({error:'Apenas administradores.'},403);
+   await saveMember(db,user,await req.json());return j({ok:true});
   }
   if(path==='/api/inquiry-status'&&req.method==='POST'){const d:any=await req.json();if(!['new','contacted','closed'].includes(d.status)||typeof d.id!=='string')return j({error:'Situação inválida.'},400);await db.prepare('UPDATE inquiries SET status=? WHERE id=?').bind(d.status,d.id).run();return j({ok:true});}
   if(path==='/api/export.sql'&&req.method==='GET'){
    if(user.role!=='admin')return j({error:'Apenas administradores.'},403);
-   const tables=['entries','settings','source_records','media','members','inquiries','audit','admin_users','visual_pages','url_redirects'];let sql='-- Stud PB / SQLite e Cloudflare D1 / '+now()+'\n'+schemaSQL+'\n';
+   const tables=['entries','settings','source_records','media','members','inquiries','audit','admin_users','visual_pages','url_redirects'];let sql='-- Stud PB / SQLite e Turso/libSQL / '+now()+'\n'+schemaSQL+'\n';
    for(const table of tables){const rows=(await db.prepare('SELECT * FROM '+table).all()).results;sql+=rows.map(row=>insertSQL(table,row)).join('\n')+'\n';}const res=response(sql,200,'application/sql; charset=utf-8');res.headers.set('Content-Disposition','attachment; filename="studpb-backup.sql"');return res;
   }
   if(path.startsWith('/admin/pedigree/')&&req.method==='GET'){const id=decodeURIComponent(path.slice(16));const all=await listEntries(db,true);const e=all.find(e=>e.id===id);if(e)e.pedigree=view.pedigreeFor(e,all);return e?response(protectedEditor(e,"paternal-first")):response('Animal não encontrado',404);}
@@ -161,5 +156,5 @@ export async function handle(req:Request):Promise<Response>{
  const slug=path.split('/').filter(Boolean).at(-1)||'';const alias=(initial.aliases as Record<string,string>)[slug];let e=entries.find(x=>x.slug===slug||x.slug===alias);
  if(e){if(!['animais','cruzamentos','noticias'].some(x=>path.startsWith('/'+x+'/'))&&e.kind!=='page')return Response.redirect(url.origin+view.entryPath(e),301);return publicResponse(e.kind==='article'?view.article(e,settings):e.kind==='page'?view.contentPage(e,settings):view.profile(e,entries,settings));}
  return response(view.shell('Página não encontrada','<section class="wrap profile-section"><p class="eyebrow">Stud PB</p><h1>Não encontramos esta página.</h1><a class="button" href="/">Voltar ao início ↗</a></section>',settings,path),404);
- }catch(error){if(error instanceof Error&&/Configure TURSO|no such table|db:import/.test(error.message))return j({error:'Banco de dados não configurado. Siga o guia de instalação da Vercel.'},503);console.error('StudPB request failed:',error instanceof Error?error.message:'unknown');return j({error:error instanceof Error&&/inválid|Preencha|Pedigree|Versão/.test(error.message)?error.message:'Não foi possível concluir. Tente novamente.'},error instanceof SyntaxError||(error instanceof Error&&/inválid|Preencha|Pedigree|Versão/.test(error.message))?400:500);}
+ }catch(error){console.error('StudPB request failed:',error instanceof Error?error.message:'unknown');return j({error:error instanceof Error&&/inválid|Preencha|Pedigree|Versão/.test(error.message)?error.message:'Não foi possível concluir. Tente novamente.'},error instanceof SyntaxError||(error instanceof Error&&/inválid|Preencha|Pedigree|Versão/.test(error.message))?400:500);}
 }

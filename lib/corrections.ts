@@ -10,6 +10,7 @@ export async function applyCorrections(db:D1Database){
  await replacePortraitTemplate(db);
  await replaceNajaLandscapePhoto(db);
  await addNewFoals(db);
+ await replaceGuinnessLandscapePhoto(db);
  if(await db.prepare('SELECT value FROM settings WHERE key=?').bind(correctionMarker).first())return;
  const statements:D1PreparedStatement[]=[];
  for(const draft of updates.drafts){const columns=['id','slug','kind','title','body','image','gallery','info','pedigree','categories','status','source_url','published_at','updated_at','version'];statements.push(db.prepare('INSERT OR IGNORE INTO entries ('+columns.join(',')+') VALUES ('+columns.map(()=>'?').join(',')+')').bind(...columns.map(k=>['info','gallery','pedigree','categories'].includes(k)?JSON.stringify((draft as any)[k]):(draft as any)[k])));}
@@ -52,7 +53,7 @@ async function replaceNajaLandscapePhoto(db:D1Database){
 async function replacePortraitTemplate(db:D1Database){
  const marker='initialized_placeholder_16x9_20261101_v1';
  if(await db.prepare('SELECT value FROM settings WHERE key=?').bind(marker).first())return;
- const oldURL='/assets/parents/bhetania-jmen-template-20261101.png',newURL='/assets/templates/photo-unavailable-16x9.png';
+ const oldURL='/assets/parents/bhetania-jmen-template-20261101-vercel.webp',newURL='/assets/templates/photo-unavailable-16x9-vercel.webp';
  await db.batch([
   db.prepare('UPDATE entries SET image=replace(image,?,?),gallery=replace(gallery,?,?),info=replace(info,?,?),version=version+1 WHERE image=? OR instr(gallery,?)>0 OR instr(info,?)>0').bind(oldURL,newURL,oldURL,newURL,oldURL,newURL,oldURL,oldURL,oldURL),
   db.prepare('UPDATE visual_pages SET patches=replace(patches,?,?),revision=revision+1 WHERE instr(patches,?)>0').bind(oldURL,newURL,oldURL),
@@ -104,4 +105,19 @@ async function replaceEclypsePhoto(db:D1Database){
   db.prepare('UPDATE visual_pages SET patches=replace(patches,?,?),revision=revision+1 WHERE instr(patches,?)>0').bind(oldURL,newURL,oldURL),
   db.prepare('INSERT OR IGNORE INTO settings (key,value) VALUES (?,?)').bind(marker,'1')
  ]);
+}
+
+// Replace only the approved original cover once, preserving later editorial uploads.
+async function replaceGuinnessLandscapePhoto(db:D1Database){
+ const marker='initialized_guinness_landscape_20261104_v1';
+ if(await db.prepare('SELECT value FROM settings WHERE key=?').bind(marker).first())return;
+ const row=await db.prepare('SELECT image,info,version FROM entries WHERE id=?').bind('wp-643').first<{image:string;info:string;version:number}>();
+ if(!row)return;
+ const statements:D1PreparedStatement[]=[];
+ if(row.image==='/assets/imported/5663cf91475f64eb4f.webp'){
+  const info={...JSON.parse(row.info),coverReviewPending:false};
+  statements.push(db.prepare('UPDATE entries SET image=?,info=?,updated_at=?,version=version+1 WHERE id=? AND version=?').bind('/assets/imported/guinness-de-la-violle-1920x1080-20261104-vercel.webp',JSON.stringify(info),'2026-11-04T15:00:00Z','wp-643',row.version));
+ }
+ statements.push(db.prepare('INSERT OR IGNORE INTO settings (key,value) VALUES (?,?)').bind(marker,'1'));
+ await db.batch(statements);
 }

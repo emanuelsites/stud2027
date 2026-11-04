@@ -1,9 +1,10 @@
 node_modules/
 .next/
+.vercel/
 .env*
 !.env.example
-.vercel/
-*.db
-*.db-*
 *.tsbuildinfo
-tests/.runtime-test.mjs
+data/*.db*
+tests/.*.mjs
+public/admin-upload.js
+backups/

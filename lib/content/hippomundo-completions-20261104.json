@@ -1,0 +1,698 @@
+[
+  {
+    "name": "Uricas van de Kattevennen",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/511120-uricas-van-de-kattevennen",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Uricas van de Kattevennen",
+      "sex": "male",
+      "father": {
+        "name": "Uriko",
+        "sex": "male",
+        "father": {
+          "name": "Untouchable",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Wizzard 23",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "T-Cassina",
+        "sex": "female",
+        "father": {
+          "name": "Cassini I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Chika’s Way",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Baloubet du Rouet",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/20510-baloubet-du-rouet",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Baloubet du Rouet",
+      "sex": "male",
+      "father": {
+        "name": "Galoubet A",
+        "sex": "male",
+        "father": {
+          "name": "Almé Z",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Viti",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Mesange du Rouet",
+        "sex": "female",
+        "father": {
+          "name": "Starter",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Badine",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Vagabond de la Pomme",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/84248-vagabond-de-la-pomme",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Vagabond de la Pomme",
+      "sex": "male",
+      "father": {
+        "name": "Vigo d’Arsouilles",
+        "sex": "male",
+        "father": {
+          "name": "Nabab de Reve",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Illico d’Arsouilles",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Sauterelle de la Pomme STX",
+        "sex": "female",
+        "father": {
+          "name": "For Pleasure",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Narcotique de Muze II",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Emerald van 't Ruytershof",
+    "aliases": [
+      "Emerald Van",
+      "Emerald",
+      "Emerald Van't Ruytershof"
+    ],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/67696-emerald",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Emerald van 't Ruytershof",
+      "sex": "male",
+      "father": {
+        "name": "Diamant de Semilly",
+        "sex": "male",
+        "father": {
+          "name": "Le Tot de Semilly",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Venise des Cresles",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Carthina Z",
+        "sex": "female",
+        "father": {
+          "name": "Carthago Z",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Tanagra S van het Darohof",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Grimoire d’Elphen",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/1177974-grimoire-delphen",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Grimoire d’Elphen",
+      "sex": "male",
+      "father": {
+        "name": "Thunder Gesmeray",
+        "sex": "male",
+        "father": {
+          "name": "Limbo",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Balsamine Gesmeray",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Dior d’Elphen",
+        "sex": "female",
+        "father": {
+          "name": "Arnac d’Elphen",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Aquarelle D’ Elphen",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Ermitage Kalone",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/de/pedigree/performance/714522-ermitage-kalone",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Ermitage Kalone",
+      "sex": "male",
+      "father": {
+        "name": "Catoki",
+        "sex": "male",
+        "father": {
+          "name": "Cambridge",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Bilda",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Bellaventure Kalone",
+        "sex": "female",
+        "father": {
+          "name": "Kannan",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Blague du Maury x",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Zirocco Blue VDL",
+    "aliases": [
+      "Zirocco Blue"
+    ],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/96041-zirocco-blue-vdl",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Zirocco Blue VDL",
+      "sex": "male",
+      "father": {
+        "name": "Mr. Blue",
+        "sex": "male",
+        "father": {
+          "name": "Couperus",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Acarla",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Licorne des Forets",
+        "sex": "female",
+        "father": {
+          "name": "Voltaire",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Gekas des Forets",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Cumano",
+    "aliases": [
+      "Cavalor Cumano"
+    ],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/20784-cavalor-cumano",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Cumano",
+      "sex": "male",
+      "father": {
+        "name": "Cassini I",
+        "sex": "male",
+        "father": {
+          "name": "Capitol I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Wisma",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Chanell II",
+        "sex": "female",
+        "father": {
+          "name": "Landgraf I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Weisse Dame",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Chacoon Blue",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/688468-chacoon-blue",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Chacoon Blue",
+      "sex": "male",
+      "father": {
+        "name": "Chacco Blue",
+        "sex": "male",
+        "father": {
+          "name": "Chambertin",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "MoM’s Contara",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Cindina",
+        "sex": "female",
+        "father": {
+          "name": "Cartoon 21",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Widina",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Conthargos",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/507869-conthargos",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Conthargos",
+      "sex": "male",
+      "father": {
+        "name": "Converter I",
+        "sex": "male",
+        "father": {
+          "name": "Contender",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Fontirell",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Cajandra Z",
+        "sex": "female",
+        "father": {
+          "name": "Carthago Z",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Jalanda",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Heartbreaker",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/16067-heartbreaker",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Heartbreaker",
+      "sex": "male",
+      "father": {
+        "name": "Nimmerdor",
+        "sex": "male",
+        "father": {
+          "name": "Farn",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Ramonaa",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Bacarole",
+        "sex": "female",
+        "father": {
+          "name": "Silvano",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Orchidee",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Diamant de Semilly",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/30004-diamant-de-semilly",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Diamant de Semilly",
+      "sex": "male",
+      "father": {
+        "name": "Le Tot de Semilly",
+        "sex": "male",
+        "father": {
+          "name": "Grand Veneur",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Venue du Tot",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Venise des Cresles",
+        "sex": "female",
+        "father": {
+          "name": "Elf III",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Miss des Cresles",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Mylord Carthago",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/45828-mylord-carthago",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Mylord Carthago",
+      "sex": "male",
+      "father": {
+        "name": "Carthago Z",
+        "sex": "male",
+        "father": {
+          "name": "Capitol I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Perra",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Fragance de Chalus",
+        "sex": "female",
+        "father": {
+          "name": "Jalisco B",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Nifrane",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Dira Courcelle",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/83728-malito-de-reve",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Dira Courcelle",
+      "sex": "female",
+      "father": {
+        "name": "Muguet du Manoir",
+        "sex": "male",
+        "father": {
+          "name": "Artichaut",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Camera",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Valse de la Croix",
+        "sex": "female",
+        "father": {
+          "name": "Grand Veneur",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Java de la Croix",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Cobra",
+    "aliases": [],
+    "source": "https://www.hippomundo.com/en/pedigree/performance/16078-cobra",
+    "sourceLabel": "Hippomundo",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Cobra",
+      "sex": "male",
+      "father": {
+        "name": "Carthago Z",
+        "sex": "male",
+        "father": {
+          "name": "Capitol I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Perra",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "S-Ladalca",
+        "sex": "female",
+        "father": {
+          "name": "Landgraf I",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Junda",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  },
+  {
+    "name": "Regina Metodo",
+    "aliases": [],
+    "source": "https://www.brazhorse.com.br/cavalo/855807EF-C4C4-4CA4-9FF1-C4A141EE6682/equicenter-cashemere",
+    "sourceLabel": "ABCCH via BrazHorse",
+    "reviewedAt": "2026-11-04",
+    "pedigree": {
+      "name": "Regina Metodo",
+      "sex": "female",
+      "father": {
+        "name": "Papillon Rouge",
+        "sex": "male",
+        "father": {
+          "name": "Jalisco B",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Verboise",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      },
+      "mother": {
+        "name": "Mirella Metodo",
+        "sex": "female",
+        "father": {
+          "name": "Bubis",
+          "sex": "male",
+          "father": null,
+          "mother": null
+        },
+        "mother": {
+          "name": "Primavera da Metodo",
+          "sex": "female",
+          "father": null,
+          "mother": null
+        }
+      }
+    }
+  }
+]

@@ -1,38 +1,30 @@
-import {createClient,type Client,type InValue,type ResultSet} from '@libsql/client';
-import {put,head} from '@vercel/blob';
+import {getDatabase} from './database';
+export const env={get DB(){return getDatabase()}};
 
-function projected(r:ResultSet){return {results:r.rows.map(row=>Object.fromEntries(r.columns.map(column=>[column,row[column]]))),success:true,meta:{changes:r.rowsAffected,last_row_id:Number(r.lastInsertRowid||0)}};}
-export class SQLStatement {
- constructor(readonly client:Client,readonly sql:string,readonly args:InValue[]=[]){ }
- bind(...values:any[]){return new SQLStatement(this.client,this.sql,values);}
- async all<T=Record<string,unknown>>(){return projected(await this.client.execute({sql:this.sql,args:this.args})) as unknown as D1Result<T>;}
- async first<T=Record<string,unknown>>(column?:string):Promise<T|null>{const r=await this.all<any>();return (column?r.results[0]?.[column]:r.results[0])??null;}
- async run(){return this.all();}
+export function siteOrigin(){
+  const origin=process.env.SITE_URL||(process.env.VERCEL_PROJECT_PRODUCTION_URL?'https://'+process.env.VERCEL_PROJECT_PRODUCTION_URL:'http://localhost:3000');
+  return new URL(origin).origin;
 }
-export class SQLDatabase {
- constructor(readonly client:Client){}
- prepare(sql:string){return new SQLStatement(this.client,sql);}
- async batch(statements:SQLStatement[]){return (await this.client.batch(statements.map(s=>({sql:s.sql,args:s.args})),'write')).map(projected);}
+export function clientAddress(req:Request){
+  // Vercel overwrites this header. Never trust oai/Cloudflare identity headers here.
+  return req.headers.get('x-vercel-forwarded-for')?.split(',')[0].trim()||'anonymous';
 }
-let database:SQLDatabase|undefined;
-export function getDatabase(){
- if(!database){
-  const url=process.env.TURSO_DATABASE_URL;
-  if(!url)throw Error('Configure TURSO_DATABASE_URL e importe o banco antes de publicar.');
-  if(process.env.VERCEL&&url.startsWith('file:'))throw Error('Use um banco Turso remoto na Vercel.');
-  database=new SQLDatabase(createClient({url,authToken:process.env.TURSO_AUTH_TOKEN,intMode:'number'}));
- }
- return database;
+
+function allowedOrigins(){
+  return [siteOrigin(),process.env.VERCEL_URL,process.env.VERCEL_BRANCH_URL]
+    .filter(Boolean).map(value=>value!.startsWith('http')?new URL(value!).origin:'https://'+value);
 }
-const bucket={
- async put(key:string,bytes:Uint8Array,options:any){return put('studpb/'+key,Buffer.from(bytes),{access:'public',addRandomSuffix:false,contentType:options.httpMetadata.contentType});},
- async get(key:string){
-  try{const object=await head('studpb/'+key);const r=await fetch(object.url);if(!r.ok)return null;return {body:r.body,httpMetadata:{contentType:object.contentType}};}catch{return null;}
- }
-};
-let ready:Promise<void>|undefined;
-export const env={
- get DB(){return getDatabase() as unknown as D1Database;},
- get BUCKET(){return process.env.BLOB_READ_WRITE_TOKEN?bucket:undefined;},
- ready(){return ready??=getDatabase().client.execute("SELECT value FROM settings WHERE key='initialized_v1'").then(r=>{if(!r.rows.length)throw Error('Execute npm run db:import antes de publicar.');}).catch(e=>{ready=undefined;throw e;});}
-};
+export function sameOrigin(req:Request){
+  const origin=req.headers.get('Origin');
+  return !!origin&&(origin===new URL(req.url).origin||allowedOrigins().includes(origin));
+}
+export function externalOrigin(req:Request){
+  // Next's internal Request URL may use localhost behind the hosting proxy.
+  // Only recognized deployment/canonical hosts are used in redirects.
+  const host=req.headers.get('x-forwarded-host')||req.headers.get('host');
+  const origins=allowedOrigins();
+  const known=origins.find(origin=>new URL(origin).host===host);
+  if(known)return known;
+  if(!process.env.VERCEL&&host&&/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host))return 'http://'+host;
+  return siteOrigin();
+}

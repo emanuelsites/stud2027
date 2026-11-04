@@ -28,11 +28,22 @@ function filteredProducts(){
 }
 function renderCatalog(){
  const all=filteredProducts();const limited=state.category==='all'&&!state.query&&!state.mother&&!state.expanded;
- const visible=limited?all.slice(0,3):all;
- document.querySelector('#catalog-grid').innerHTML=visible.map(card).join('');
+ const order=['embriao','gestacao','potro'];
+ const labels={embriao:'Embriões congelados',gestacao:'Gestações futuras',potro:'Potros'};
+ const links={embriao:'/embrioes/congelados/',gestacao:'/gestacoes/',potro:'/potros/'};
+ const grouped=state.category==='all';
+ let count=0;
+ const grid=document.querySelector('#catalog-grid');
+ grid.classList.toggle('catalog-grouped',grouped);
+ grid.innerHTML=grouped?order.map(type=>{
+  const group=all.filter(p=>p.type===type);if(!group.length)return '';
+  const shown=limited?group.slice(0,3):group;count+=shown.length;
+  return `<section class="catalog-category" aria-label="${labels[type]}"><div class="section-head"><h3>${labels[type]}</h3><a class="text-link" href="${links[type]}">Ver todos (${group.length}) →</a></div><div class="product-grid">${shown.map(card).join('')}</div></section>`;
+ }).join(''):all.map(card).join('');
+ const visibleCount=grouped?count:all.length;
  document.querySelector('#empty').hidden=all.length!==0;
- document.querySelector('#show-all').hidden=!limited||all.length<=3;
- document.querySelector('#catalog-status').textContent=`${all.length} opções encontradas. ${visible.length} exibidas.`;
+ document.querySelector('#show-all').hidden=!limited||visibleCount===all.length;
+ document.querySelector('#catalog-status').textContent=`${all.length} opções encontradas. ${visibleCount} exibidas.`;
  document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===state.category)));
  document.querySelector('#active-line').hidden=!state.query&&!state.mother;
  document.querySelector('#active-description').textContent=state.mother?`Linhagem materna: ${state.mother}`:`Busca: ${state.query}`;
@@ -59,7 +70,6 @@ function inquiryMessage(){const name=document.querySelector('#inquiry-name').val
 function renderEditorial(id,selector,description){const p=products.find(x=>x.id===id);if(!p){document.querySelector(selector).hidden=true;return;}document.querySelector(selector).innerHTML=`<button class="image-button" data-detail="${id}" aria-label="${esc(title(p))}">${parentPair(p)}</button><p class="product-kind">${categories[p.type]}</p><h3 class="product-name" data-cms-field="title">${nameMarkup(p)}</h3><p class="product-meta">${description}</p><a class="text-link" href="#catalogo" data-category="${p.type}">Explorar ${p.type==='embriao'?'embriões':'gestações'} <span aria-hidden="true">→</span></a>`;}
 renderCatalog();
 // The reproduction section explains the two modalities instead of repeating products.
-document.querySelector('#foal-grid').innerHTML=products.filter(p=>p.type==='potro').slice(0,3).map(card).join('');
 document.querySelector('#mare-grid').innerHTML=mares.map(m=>{
  const isBalance=!!m.url;
  const image=`<img class="mare-photo" src="${A+m.image}" alt="${esc(m.name)}" loading="lazy" width="300" height="500">`;
