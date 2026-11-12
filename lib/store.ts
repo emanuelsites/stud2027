@@ -1,4 +1,6 @@
 import seed from './content/seed.json';
+import content from '../database/content.json';
+import schemaSQL from './content/schema';
 import {normalizeVideos} from './media';
 import {forecastDate} from './catalog';
 export type Entry={id:string;slug:string;kind:string;title:string;body:string;image:string;gallery:string[];info:Record<string,any>;pedigree:any;categories:string[];status:string;source_url:string;published_at:string;updated_at:string;version:number};
@@ -7,7 +9,21 @@ export const isEditorialImage=(url:string)=>!/(?:c66cf9b382e738721d|gototopbtn)/
 export const entryColumns=['id','slug','kind','title','body','image','gallery','info','pedigree','categories','status','source_url','published_at','updated_at','version'];
 export function entryValues(e:Entry){return entryColumns.map(k=>['gallery','info','pedigree','categories'].includes(k)?JSON.stringify(e[k as keyof Entry]):e[k as keyof Entry]);}
 export function decodeEntry(r:any):Entry{const e={...r};for(const k of ['gallery','info','pedigree','categories']){try{e[k]=JSON.parse(e[k]);}catch{e[k]=k==='gallery'||k==='categories'?[]:{}}}if(Array.isArray(e.gallery))e.gallery=e.gallery.filter(isEditorialImage);return e;}
+async function replaceDatabase(db:D1Database){
+ const tables=['audit','entries','inquiries','media','members','rate_limits','settings','source_records','admin_sessions','admin_users','visual_pages','url_redirects'];
+ const statements: D1PreparedStatement[] = tables.map(table=>db.prepare(`DROP TABLE IF EXISTS "${table}"`));
+ for(const sql of schemaSQL.split(';').map(sql=>sql.trim()).filter(Boolean))statements.push(db.prepare(sql.replace(/^CREATE TABLE /,'CREATE TABLE IF NOT EXISTS ').replace(/^CREATE UNIQUE INDEX /,'CREATE UNIQUE INDEX IF NOT EXISTS ')));
+ for(const [table,rows] of Object.entries(content))for(const row of rows as Record<string,unknown>[]){
+  const columns=Object.keys(row);
+  statements.push(db.prepare(`INSERT INTO "${table}" (${columns.map(column=>`"${column}"`).join(',')}) VALUES (${columns.map(()=>'?').join(',')})`).bind(...columns.map(column=>typeof row[column]==='object'&&row[column]!==null?JSON.stringify(row[column]):row[column])));
+ }
+ await db.batch(statements);
+}
 export async function initialize(db:D1Database){
+ if(process.env.STUDPB_REPLACE_DB==='1'){
+  const done=await db.prepare("SELECT value FROM settings WHERE key='database_replaced_20261112'").first();
+  if(!done){await replaceDatabase(db);await db.prepare("INSERT INTO settings (key,value) VALUES ('database_replaced_20261112','1')").run();}
+ }
  const ready=await db.prepare("SELECT value FROM settings WHERE key='initialized_v1'").first();
  if(!ready)throw new Error('Importe o banco aprovado com npm run db:import antes de iniciar o site.');
 }
