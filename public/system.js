@@ -1,7 +1,7 @@
 'use strict';
 (()=>{
  const isHome=!!window.STUD_DATA;
- const placeholder='/assets/templates/photo-unavailable-16x9.png';
+ const placeholder='/assets/templates/photo-unavailable-16x9-web.webp';
  const photoSelector='.library-photo>img,.parent-photo>img,.mare-main-photo>img,.foal-photo,.mare-photo';
  function missingPhoto(image){
   if(!image.matches(photoSelector)||image.getAttribute('src')===placeholder)return;

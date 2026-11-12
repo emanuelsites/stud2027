@@ -1,6 +1,6 @@
 'use strict';
 const A='';
-const PHOTO_PLACEHOLDER='/assets/templates/photo-unavailable-16x9.png';
+const PHOTO_PLACEHOLDER='/assets/templates/photo-unavailable-16x9-web.webp';
 const categories={embriao:'Embrião congelado',gestacao:'Gestação',potro:'Potro'};
 const products=window.STUD_DATA.products;
 const mares=window.STUD_DATA.mares;

@@ -1,9 +1,0 @@
-tests/
-database/*.sqlite*
-database/*.sql
-database/content.json
-docs/
-migration/
-backups/
-.env*
-data/

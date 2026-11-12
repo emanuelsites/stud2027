@@ -1,32 +1,59 @@
-import {createClient,type Client,type InValue,type ResultSet} from '@libsql/client';
+import {createClient, type Client, type InValue, type ResultSet} from '@libsql/client';
 
-const values=(items:any[]):InValue[]=>items.map(v=>v===undefined?null:v);
-const result=<T>(r:ResultSet):D1Result<T>=>({results:r.rows.map(row=>Object.fromEntries(Object.entries(row).map(([k,v])=>[k,typeof v==='bigint'?Number(v):v]))) as T[],meta:{changes:r.rowsAffected}});
-class Statement implements D1PreparedStatement {
-  constructor(readonly client:Client,readonly sql:string,readonly args:InValue[]=[]){}
-  bind(...args:any[]){return new Statement(this.client,this.sql,values(args))}
-  async first<T=Record<string,unknown>>(){return (await this.all<T>()).results[0]??null}
-  async all<T=Record<string,unknown>>(){return result<T>(await this.client.execute({sql:this.sql,args:this.args}))}
-  async run(){return this.all()}
-}
-export function adaptDatabase(client:Client):D1Database {
-  return {
-    prepare:sql=>new Statement(client,sql),
-    async batch(statements){
-      if(!statements.length)return [];
-      const queries=statements.map(s=>{if(!(s instanceof Statement)||s.client!==client)throw Error('Transação inválida.');return {sql:s.sql,args:s.args}});
-      // libSQL batch('write') is atomic: failed edits never leave half a save.
-      return (await client.batch(queries,'write')).map(r=>result(r));
+let client: Client | undefined;
+
+function connection(): Client {
+  if (!client) {
+    const url = process.env.TURSO_DATABASE_URL;
+    if (!url) throw new Error('Configure TURSO_DATABASE_URL antes de iniciar o site.');
+    if (process.env.VERCEL && url.startsWith('file:')) {
+      throw new Error('Configure um banco Turso remoto na Vercel.');
     }
+    client = createClient({url, authToken: process.env.TURSO_AUTH_TOKEN});
+  }
+  return client;
+}
+
+function result<T>(value: ResultSet): D1Result<T> {
+  return {
+    results: value.rows.map(row => Object.fromEntries(Object.entries(row))) as T[],
+    success: true,
+    meta: {changes: value.rowsAffected},
   };
 }
-let database:D1Database;
-export function getDatabase(){
-  if(!database){
-    const url=process.env.TURSO_DATABASE_URL;
-    if(!url)throw Error('Configure TURSO_DATABASE_URL e execute npm run db:setup.');
-    if(process.env.VERCEL&& !/^(libsql|https):\/\//.test(url))throw Error('A Vercel precisa de banco remoto persistente.');
-    database=adaptDatabase(createClient({url,authToken:process.env.TURSO_AUTH_TOKEN||undefined,intMode:'number'}));
+
+class Statement implements D1PreparedStatement {
+  constructor(readonly sql: string, readonly args: InValue[] = []) {}
+
+  bind(...values: unknown[]): Statement {
+    return new Statement(this.sql, values.map(value => value === undefined ? null : value) as InValue[]);
   }
-  return database;
+
+  async all<T = Record<string, unknown>>(): Promise<D1Result<T>> {
+    return result<T>(await connection().execute({sql: this.sql, args: this.args}));
+  }
+
+  async first<T = Record<string, unknown>>(column?: string): Promise<T | null> {
+    const response = await this.all<Record<string, unknown>>();
+    const row = response.results[0];
+    return row ? (column ? row[column] as T : row as T) : null;
+  }
+
+  async run<T = Record<string, unknown>>(): Promise<D1Result<T>> {
+    return this.all<T>();
+  }
 }
+
+const adapter: D1Database = {
+  prepare(sql: string) { return new Statement(sql); },
+  async batch<T = Record<string, unknown>>(statements: D1PreparedStatement[]) {
+    const queries = statements.map(statement => {
+      if (!(statement instanceof Statement)) throw new Error('Consulta incompatível com o banco.');
+      return {sql: statement.sql, args: statement.args};
+    });
+    // libSQL commits all statements atomically and rolls back a failed batch.
+    return (await connection().batch(queries, 'write')).map(value => result<T>(value));
+  },
+};
+
+export function database(): D1Database { return adapter; }

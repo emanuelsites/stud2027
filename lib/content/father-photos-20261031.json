@@ -1,31 +1,31 @@
 {
   "chacoonblue": {
     "name": "Chacoon Blue",
-    "image": "/assets/parents/chacoon-blue-20261031.png"
+    "image": "/assets/parents/chacoon-blue-20261031-web.webp"
   },
   "conthargos": {
     "name": "Conthargos",
-    "image": "/assets/parents/conthargos-20261031.png"
+    "image": "/assets/parents/conthargos-20261031-web.webp"
   },
   "cumano": {
     "name": "Cumano",
-    "image": "/assets/parents/cumano-20261031.png"
+    "image": "/assets/parents/cumano-20261031-web.webp"
   },
   "diamantdesemilly": {
     "name": "Diamant de Semilly",
-    "image": "/assets/parents/diamant-de-semilly-20261031-vercel.webp"
+    "image": "/assets/parents/diamant-de-semilly-20261031-web.webp"
   },
   "emeraldvan": {
     "name": "Emerald Van't Ruytershof",
-    "image": "/assets/parents/emerald-vant-ruytershof-20261031.png"
+    "image": "/assets/parents/emerald-vant-ruytershof-20261031-web.webp"
   },
   "emeraldvantruytershof": {
     "name": "Emerald Van't Ruytershof",
-    "image": "/assets/parents/emerald-vant-ruytershof-20261031.png"
+    "image": "/assets/parents/emerald-vant-ruytershof-20261031-web.webp"
   },
   "ermitagekalone": {
     "name": "Ermitage Kalone",
-    "image": "/assets/parents/ermitage-kalone-20261031.png"
+    "image": "/assets/parents/ermitage-kalone-20261031-web.webp"
   },
   "grimoiredelphen": {
     "name": "Grimoire D’Elphen",
@@ -33,18 +33,18 @@
   },
   "heartbreaker": {
     "name": "Heartbreaker",
-    "image": "/assets/parents/heartbreaker-20261031.png"
+    "image": "/assets/parents/heartbreaker-20261031-web.webp"
   },
   "mylordcarthago": {
     "name": "MyLord Carthago",
-    "image": "/assets/parents/mylord-carthago-20261031.png"
+    "image": "/assets/parents/mylord-carthago-20261031-web.webp"
   },
   "vagabonddelapomme": {
     "name": "Vagabond de la Pomme",
-    "image": "/assets/parents/vagabond-de-la-pomme-20261031.png"
+    "image": "/assets/parents/vagabond-de-la-pomme-20261031-web.webp"
   },
   "ziroccoblue": {
     "name": "Zirocco Blue",
-    "image": "/assets/parents/zirocco-blue-20261031.png"
+    "image": "/assets/parents/zirocco-blue-20261031-web.webp"
   }
 }

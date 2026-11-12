@@ -42,7 +42,7 @@ async function addNewFoals(db:D1Database){
 async function replaceNajaLandscapePhoto(db:D1Database){
  const marker='initialized_ec_naja_landscape_20261101_v1';
  if(await db.prepare('SELECT value FROM settings WHERE key=?').bind(marker).first())return;
- const oldURL='/assets/parents/ec-naja-20261101.png',newURL='/assets/parents/ec-naja-16x9-20261101.png';
+ const oldURL='/assets/parents/ec-naja-20261101-web.webp',newURL='/assets/parents/ec-naja-16x9-20261101.png';
  await db.batch([
   db.prepare('UPDATE entries SET image=replace(image,?,?),gallery=replace(gallery,?,?),info=replace(info,?,?),version=version+1 WHERE image=? OR instr(gallery,?)>0 OR instr(info,?)>0').bind(oldURL,newURL,oldURL,newURL,oldURL,newURL,oldURL,oldURL,oldURL),
   db.prepare('UPDATE visual_pages SET patches=replace(patches,?,?),revision=revision+1 WHERE instr(patches,?)>0').bind(oldURL,newURL,oldURL),
@@ -53,7 +53,7 @@ async function replaceNajaLandscapePhoto(db:D1Database){
 async function replacePortraitTemplate(db:D1Database){
  const marker='initialized_placeholder_16x9_20261101_v1';
  if(await db.prepare('SELECT value FROM settings WHERE key=?').bind(marker).first())return;
- const oldURL='/assets/parents/bhetania-jmen-template-20261101-vercel.webp',newURL='/assets/templates/photo-unavailable-16x9-vercel.webp';
+ const oldURL='/assets/parents/bhetania-jmen-template-20261101-web.webp',newURL='/assets/templates/photo-unavailable-16x9-web.webp';
  await db.batch([
   db.prepare('UPDATE entries SET image=replace(image,?,?),gallery=replace(gallery,?,?),info=replace(info,?,?),version=version+1 WHERE image=? OR instr(gallery,?)>0 OR instr(info,?)>0').bind(oldURL,newURL,oldURL,newURL,oldURL,newURL,oldURL,oldURL,oldURL),
   db.prepare('UPDATE visual_pages SET patches=replace(patches,?,?),revision=revision+1 WHERE instr(patches,?)>0').bind(oldURL,newURL,oldURL),
@@ -116,7 +116,7 @@ async function replaceGuinnessLandscapePhoto(db:D1Database){
  const statements:D1PreparedStatement[]=[];
  if(row.image==='/assets/imported/5663cf91475f64eb4f.webp'){
   const info={...JSON.parse(row.info),coverReviewPending:false};
-  statements.push(db.prepare('UPDATE entries SET image=?,info=?,updated_at=?,version=version+1 WHERE id=? AND version=?').bind('/assets/imported/guinness-de-la-violle-1920x1080-20261104-vercel.webp',JSON.stringify(info),'2026-11-04T15:00:00Z','wp-643',row.version));
+  statements.push(db.prepare('UPDATE entries SET image=?,info=?,updated_at=?,version=version+1 WHERE id=? AND version=?').bind('/assets/imported/guinness-de-la-violle-1920x1080-20261104-web.webp',JSON.stringify(info),'2026-11-04T15:00:00Z','wp-643',row.version));
  }
  statements.push(db.prepare('INSERT OR IGNORE INTO settings (key,value) VALUES (?,?)').bind(marker,'1'));
  await db.batch(statements);

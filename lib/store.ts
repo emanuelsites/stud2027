@@ -1,11 +1,5 @@
 import seed from './content/seed.json';
-import {seedAdmin} from './local-auth';
-import genealogyUpdates from './content/genealogy-audit-updates.json';
-import mediaUpdates from './content/media-updates.json';
 import {normalizeVideos} from './media';
-import {applyCorrections} from './corrections';
-import {applyClientReview} from './client-review';
-import {applyVerifiedPedigreeCompletions} from './pedigree-completions';
 import {forecastDate} from './catalog';
 export type Entry={id:string;slug:string;kind:string;title:string;body:string;image:string;gallery:string[];info:Record<string,any>;pedigree:any;categories:string[];status:string;source_url:string;published_at:string;updated_at:string;version:number};
 export const initial=seed;
@@ -14,73 +8,8 @@ export const entryColumns=['id','slug','kind','title','body','image','gallery','
 export function entryValues(e:Entry){return entryColumns.map(k=>['gallery','info','pedigree','categories'].includes(k)?JSON.stringify(e[k as keyof Entry]):e[k as keyof Entry]);}
 export function decodeEntry(r:any):Entry{const e={...r};for(const k of ['gallery','info','pedigree','categories']){try{e[k]=JSON.parse(e[k]);}catch{e[k]=k==='gallery'||k==='categories'?[]:{}}}if(Array.isArray(e.gallery))e.gallery=e.gallery.filter(isEditorialImage);return e;}
 export async function initialize(db:D1Database){
- await seedAdmin(db);
- await db.prepare("INSERT OR IGNORE INTO visual_pages (path,updated_at) VALUES ('*',?)").bind(new Date().toISOString()).run();
- if(!await db.prepare("SELECT value FROM settings WHERE key='initialized_paternal_convention_v1'").first()){
-  const updates:D1PreparedStatement[]=[];
-  const rows=await db.prepare("SELECT id,title,info,pedigree FROM entries WHERE kind='crossing' OR id='wp-1575'").all<{id:string;title:string;info:string;pedigree:string}>();
-  for(const row of rows.results){
-   const info=JSON.parse(row.info),pedigree=JSON.parse(row.pedigree);
-   if(row.id==='wp-1575'){
-    const verified=seed.entries.find(e=>e.id==='wp-1575')!;
-    updates.push(db.prepare('UPDATE entries SET info=?,pedigree=?,body=?,updated_at=?,version=version+1 WHERE id=?').bind(JSON.stringify({...info,...verified.info}),JSON.stringify(verified.pedigree),verified.body,verified.updated_at,row.id));
-   }else if(info.father&&info.mother){
-    const title=info.father+' × '+info.mother;
-    if(info.genetics&&!info.legacyGenetics)info.legacyGenetics=info.genetics;info.genetics=title;
-    updates.push(db.prepare('UPDATE entries SET title=?,pedigree=?,info=?,version=version+1 WHERE id=?').bind(title,JSON.stringify({...pedigree,name:title}),JSON.stringify(info),row.id));
-   }
-  }
-  updates.push(db.prepare("INSERT INTO settings (key,value) VALUES ('pedigree_order','paternal-first') ON CONFLICT(key) DO UPDATE SET value=excluded.value"));
-  updates.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_paternal_convention_v1','1')"));
-  await db.batch(updates);
- }
-
- // Data repair outside schema migrations; preserve editorial changes and original-source archive.
- if(!await db.prepare("SELECT value FROM settings WHERE key='initialized_gallery_assets_v1'").first()){
-  const rows=await db.prepare("SELECT id,gallery FROM entries WHERE gallery LIKE '%c66cf9b382e738721d%' OR lower(gallery) LIKE '%gototopbtn%'").all<{id:string;gallery:string}>();
-  const updates=rows.results.map(row=>db.prepare('UPDATE entries SET gallery=? WHERE id=? AND gallery=?').bind(JSON.stringify(JSON.parse(row.gallery).filter(isEditorialImage)),row.id,row.gallery));
-  updates.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_gallery_assets_v1','1')"));
-  await db.batch(updates);
- }
-
- // One-time public-source audit. Patch genealogy only; keep photos, availability,
- // contact records, access settings and later editorial changes on future boots.
- if(!await db.prepare("SELECT value FROM settings WHERE key='initialized_genealogy_audit_20261019_v1'").first()){
-  const updates:D1PreparedStatement[]=[];
-  for(const patch of genealogyUpdates as any[]){
-   const current=await db.prepare('SELECT info,body,title,pedigree FROM entries WHERE id=?').bind(patch.id).first<any>();
-   if(!current)continue;
-   const info={...JSON.parse(current.info),...(patch.info||{})};
-   updates.push(db.prepare('UPDATE entries SET info=?,body=?,title=?,pedigree=?,updated_at=?,version=version+1 WHERE id=?').bind(JSON.stringify(info),patch.body??current.body,patch.title??current.title,patch.pedigree?JSON.stringify(patch.pedigree):current.pedigree,'2026-10-19T17:30:00Z',patch.id));
-  }
-  updates.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_genealogy_audit_20261019_v1','1')"));
-  await db.batch(updates);
- }
- if(!await db.prepare("SELECT value FROM settings WHERE key='initialized_animal_media_20261019_v1'").first()){
-  const updates:D1PreparedStatement[]=[];
-  for(const patch of mediaUpdates){
-   const row=await db.prepare('SELECT image,gallery,info FROM entries WHERE id=?').bind(patch.id).first<{image:string;gallery:string;info:string}>();if(!row)continue;
-   const info={...JSON.parse(row.info),videos:patch.videos,mediaReviewedAt:'2026-10-19'};
-   // Only replace imported covers. Preserve a photo subsequently uploaded by the team.
-   const seedEntry=seed.entries.find(e=>e.id===patch.id)!;
-   const image=row.image.startsWith('/assets/imported/')||!row.image?patch.image:row.image;
-   const gallery=[...new Set([...(image!==patch.image&&patch.image?[patch.image]:[]),...patch.gallery,...JSON.parse(row.gallery).filter((u:string)=>!u.startsWith('/assets/imported/'))])].filter(u=>u!==image&&isEditorialImage(u));
-   updates.push(db.prepare('UPDATE entries SET image=?,gallery=?,info=?,version=version+1 WHERE id=?').bind(image,JSON.stringify(gallery),JSON.stringify(info),seedEntry.id));
-  }
-  updates.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_animal_media_20261019_v1','1')"));
-  await db.batch(updates);
- }
- if(await db.prepare("SELECT value FROM settings WHERE key='initialized_v1'").first()){await applyCorrections(db);await applyClientReview(db);await applyVerifiedPedigreeCompletions(db);return;}
- const statements:D1PreparedStatement[]=[];
- for(const e of seed.entries)statements.push(db.prepare(`INSERT OR IGNORE INTO entries (${entryColumns.join(',')}) VALUES (${entryColumns.map(()=>'?').join(',')})`).bind(...entryValues(e as Entry)));
- for(const [k,v] of Object.entries(seed.settings))statements.push(db.prepare('INSERT OR IGNORE INTO settings (key,value) VALUES (?,?)').bind(k,v));
- // Chunk immutable public-source archive before setting the final content marker.
- for(let i=0;i<seed.source_records.length;i+=50){await db.batch(seed.source_records.slice(i,i+50).map(x=>db.prepare('INSERT OR IGNORE INTO source_records (id,type,url,payload) VALUES (?,?,?,?)').bind(x.id,x.type,x.url,x.payload)));}
- statements.push(db.prepare("INSERT OR IGNORE INTO settings (key,value) VALUES ('initialized_v1','1')"));
- await db.batch(statements);
- await applyCorrections(db);
- await applyClientReview(db);
- await applyVerifiedPedigreeCompletions(db);
+ const ready=await db.prepare("SELECT value FROM settings WHERE key='initialized_v1'").first();
+ if(!ready)throw new Error('Importe o banco aprovado com npm run db:import antes de iniciar o site.');
 }
 export async function listEntries(db:D1Database,all=false){const r=await db.prepare('SELECT * FROM entries'+(all?'':" WHERE status='published'")+' ORDER BY published_at DESC,title').all();return r.results.map(decodeEntry);}
 export async function readSettings(db:D1Database){const r=await db.prepare('SELECT key,value FROM settings').all<{key:string;value:string}>();return Object.fromEntries(r.results.filter(x=>!x.key.startsWith('initialized')).map(x=>[x.key,x.value]));}

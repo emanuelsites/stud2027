@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `audit` (
+CREATE TABLE `audit` (
 	`id` text PRIMARY KEY NOT NULL,
 	`user_id` text NOT NULL,
 	`action` text NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `audit` (
 	`created_at` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `entries` (
+CREATE TABLE `entries` (
 	`id` text PRIMARY KEY NOT NULL,
 	`slug` text NOT NULL,
 	`kind` text NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS `entries` (
 	`version` integer DEFAULT 1 NOT NULL
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `entries_slug_unique` ON `entries` (`slug`);
-CREATE TABLE IF NOT EXISTS `inquiries` (
+CREATE UNIQUE INDEX `entries_slug_unique` ON `entries` (`slug`);
+CREATE TABLE `inquiries` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text NOT NULL,
 	`email` text NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `inquiries` (
 	`status` text DEFAULT 'new' NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `media` (
+CREATE TABLE `media` (
 	`id` text PRIMARY KEY NOT NULL,
 	`url` text NOT NULL,
 	`mime` text NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `media` (
 	`created_at` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `members` (
+CREATE TABLE `members` (
 	`id` text PRIMARY KEY NOT NULL,
 	`email` text NOT NULL,
 	`user_id` text,
@@ -53,47 +53,44 @@ CREATE TABLE IF NOT EXISTS `members` (
 	`active` integer DEFAULT 1 NOT NULL
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `members_email_unique` ON `members` (`email`);
-CREATE TABLE IF NOT EXISTS `rate_limits` (
+CREATE UNIQUE INDEX `members_email_unique` ON `members` (`email`);
+CREATE TABLE `rate_limits` (
 	`key` text PRIMARY KEY NOT NULL,
 	`count` integer DEFAULT 0 NOT NULL,
 	`expires_at` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `settings` (
+CREATE TABLE `settings` (
 	`key` text PRIMARY KEY NOT NULL,
 	`value` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `source_records` (
+CREATE TABLE `source_records` (
 	`id` text PRIMARY KEY NOT NULL,
 	`type` text NOT NULL,
 	`url` text NOT NULL,
 	`payload` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `admin_sessions` (
+CREATE TABLE `admin_sessions` (
 	`token_hash` text PRIMARY KEY NOT NULL,
 	`user_id` text NOT NULL,
 	`expires_at` text NOT NULL,
 	`created_at` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `admin_users` (
+CREATE TABLE `admin_users` (
 	`id` text PRIMARY KEY NOT NULL,
 	`username` text NOT NULL,
 	`password_hash` text NOT NULL,
 	`salt` text NOT NULL,
-	`iterations` integer DEFAULT 210000 NOT NULL,
- `role` text DEFAULT 'admin' NOT NULL,
- `email` text DEFAULT '' NOT NULL,
- `display_name` text DEFAULT 'Administrador' NOT NULL,
+	`iterations` integer DEFAULT 100000 NOT NULL,
 	`active` integer DEFAULT 1 NOT NULL,
 	`created_at` text NOT NULL
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS `admin_users_username_unique` ON `admin_users` (`username`);
-CREATE TABLE IF NOT EXISTS `visual_pages` (
+CREATE UNIQUE INDEX `admin_users_username_unique` ON `admin_users` (`username`);
+CREATE TABLE `visual_pages` (
 	`path` text PRIMARY KEY NOT NULL,
 	`revision` integer DEFAULT 0 NOT NULL,
 	`patches` text DEFAULT '[]' NOT NULL,
@@ -101,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `visual_pages` (
 	`updated_at` text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `url_redirects` (
+CREATE TABLE `url_redirects` (
 	`from_path` text PRIMARY KEY NOT NULL,
 	`entry_id` text,
 	`target_path` text DEFAULT '' NOT NULL

@@ -3,8 +3,8 @@ import fatherPhotos from './content/father-photos-20261031.json';
 import motherPhotos from './content/mother-photos-20261101.json';
 import parentLandscapes from './content/parent-landscapes-20261104.json';
 export function suppliedMotherPhoto(name:string){return (motherPhotos as Record<string,{image:string;placeholder:boolean}>)[key(name)]?.image||'';}
-export const photoPlaceholder='/assets/templates/photo-unavailable-16x9-vercel.webp';
-export function isPhotoTemplate(url:string){return url===photoPlaceholder||url==='/assets/parents/bhetania-jmen-template-20261101-vercel.webp';}
+export const photoPlaceholder='/assets/templates/photo-unavailable-16x9-web.webp';
+export function isPhotoTemplate(url:string){return url===photoPlaceholder||url==='/assets/parents/bhetania-jmen-template-20261101-web.webp';}
 export function suppliedFatherPhoto(name:string){return (fatherPhotos as Record<string,{image:string}>)[key(name)]?.image||'';}
 export const key=(s:string)=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/gi,'').toLowerCase();
 export function displayName(e:Entry){if(e.kind!=='crossing')return e.title;const name=e.info.commercialName||e.title;return e.categories.includes('gestacoes')&&/^Próxima geração\s*\d+$/i.test(name)?genetics(e)||name:name;}
